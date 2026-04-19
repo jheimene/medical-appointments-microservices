@@ -1,0 +1,81 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "customerServiceRoute": {
+        "ClusterId": "customerCluster",
+        "Match": {
+          "Methods": [ "GET", "POST", "PUT" ],
+          "Path": "/api/customers/{**catch-all}"
+        }
+      },
+      "productServiceRoute": {
+        "ClusterId": "productCluster",
+        "Match": {
+          "Methods": [ "GET", "POST", "PUT" ],
+          "Path": "/api/products/{**catch-all}"
+        }
+      },
+      "productSearchServiceRoute": {
+        "ClusterId": "productCluster",
+        "Match": {
+          "Methods": [ "GET" ],
+          "Path": "/api/productSearch/{**catch-all}"
+        }
+      },
+      "orderServiceRoute": {
+        "ClusterId": "orderCluster",
+        "Match": {
+          "Path": "/api/orders/{**catch-all}"
+        }
+      }
+    },
+    "Clusters": {
+      "customerCluster": {
+        "LoadBalancingPolicy": "PowerOfTwoChoices",
+        "Destinations": {
+          "server1": {
+            "Address": "http://192.168.18.150:5500/"
+          },
+          "server2": {
+            "Address": "http://192.168.18.151:5500/"
+          },
+          "server3": {
+            "Address": "http://192.168.18.152:5500/"
+          }
+        }
+      },
+      "productCluster": {
+        "LoadBalancingPolicy": "RoundRobin",
+        "Destinations": {
+          "server1": {
+            "Address": "http://192.168.18.150:5600/"
+          },
+          "server2": {
+            "Address": "http://192.168.18.151:5600/"
+          }
+        }
+      },
+      //"productSearchCluster": {
+      //  "LoadBalancingPolicy": "RoundRobin",
+      //  "Destinations": {
+      //    "server1": {
+      //      "Address": "http://192.168.18.150:5600/"
+      //    },
+      //    "server2": {
+      //      "Address": "http://192.168.18.151:5600/"
+      //    }
+      //  }
+      //},
+      "orderCluster": {
+        "Destinations": {
+          "server1": {
+            "Address": "http://192.168.18.150:5800/"
+          },
+          "server2": {
+            "Address": "http://192.168.18.151:5800/"
+          }
+        }
+      }
+    }
+  }
+}

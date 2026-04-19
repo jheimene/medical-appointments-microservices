@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ValuesObjects\**" />
+    <EmbeddedResource Remove="ValuesObjects\**" />
+    <None Remove="ValuesObjects\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Payment\Events\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Payment\ValueObjects\" />
+    <Folder Include="ValueObjects\" />
+  </ItemGroup>
+
+</Project>

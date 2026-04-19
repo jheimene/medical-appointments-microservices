@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "zFjuqGRz0vQ=",
+  "success": true,
+  "projectFilePath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Domain\\CustomerService.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pc\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

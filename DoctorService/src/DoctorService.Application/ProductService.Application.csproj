@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Customers\**" />
+    <EmbeddedResource Remove="Customers\**" />
+    <None Remove="Customers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Abstractions\Persistence\IProductReadRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Brands\Commands\" />
+    <Folder Include="Categories\Dtos\" />
+    <Folder Include="Common\Mappings\" />
+    <Folder Include="ProductsTypes\Commands\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ErrorOr" Version="2.0.1" />
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="MediatR" Version="14.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="10.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProductService.Domain\ProductService.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
