@@ -24,7 +24,7 @@ namespace PatientService.Application.Customers.Queries.GetByIdCustomer
 
             return new CustomerDto
             {
-                CustomerId = customer!.Id.Value,
+                PatientId = customer!.Id.Value,
                 Name = customer.Name,
                 LastName = customer.LastName,
                 DocumentType = customer.Document.Type.ToString(),

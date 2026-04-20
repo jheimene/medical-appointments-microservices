@@ -11,10 +11,10 @@ namespace PatientService.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class PatientsController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public CustomersController(IMediator mediator)
+        public PatientsController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -23,24 +23,19 @@ namespace PatientService.Api.Controllers
         public async Task<IActionResult> Create(CreateCustomerCommand command, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            //return CreatedAtAction(nameof(Get), new { customerId = result }, new { result });
-
             return result.Match(
-                customerId => CreatedAtAction(nameof(GetById), new { customerId }, new { customerId }),
-                //customerId => CreatedAtRoute("Customer_GetById", new { customerId }, new { customerId }),
+                patientId => CreatedAtAction(nameof(GetById), new { customerId = patientId }, new { patientId }),
                 errors => ErrorOrHttp.MapToProblem(this, errors)
             );
         }
 
-        [HttpGet("{customerId:guid}", Name = "Customer_GetById")]
+        [HttpGet("{customerId:guid}", Name = "Patient_GetById")]
         public async Task<IActionResult> GetById(Guid customerId)
         {
             var result = await _mediator.Send(new GetByIdCustomerQuery(customerId));
-
             await Task.Delay(6);
-            //return result is null ? NotFound() : Ok(result);
             return result.Match(
-                customer => Ok(customer),
+                patient => Ok(patient),
                 errors => ErrorOrHttp.MapToProblem(this, errors)
             );
         }
@@ -58,23 +53,21 @@ namespace PatientService.Api.Controllers
                 request.Label,
                 request.IsDefault
             ));
-
-            return CreatedAtAction(nameof(GetCustomerAddress), new { customerAddressId = result }, new { result} );
+            return CreatedAtAction(nameof(GetPatientAddress), new { addressId = result }, new { result });
         }
 
         [HttpGet("{customerId:guid}/addresses/{addressId:guid}")]
-        public async Task<IActionResult> GetCustomerAddress(Guid customerId, Guid addressId)
+        public async Task<IActionResult> GetPatientAddress(Guid customerId, Guid addressId)
         {
             var result = await _mediator.Send(new GetCustomerAddressByIdQuery(customerId, addressId));
             return Ok(result);
         }
 
         [HttpGet("{customerId:guid}/addresses")]
-        public async Task<IActionResult> GetCustomerAddressAll(Guid customerId)
+        public async Task<IActionResult> GetPatientAddressAll(Guid customerId)
         {
             var result = await _mediator.Send(new GetByIdCustomerQuery(customerId));
             return Ok();
         }
-
     }
 }
