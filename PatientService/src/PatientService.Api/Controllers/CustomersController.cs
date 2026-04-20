@@ -24,15 +24,15 @@ namespace PatientService.Api.Controllers
         {
             var result = await _mediator.Send(command, cancellationToken);
             return result.Match(
-                patientId => CreatedAtAction(nameof(GetById), new { customerId = patientId }, new { patientId }),
+                patientId => CreatedAtAction(nameof(GetById), new { patientId }, new { patientId }),
                 errors => ErrorOrHttp.MapToProblem(this, errors)
             );
         }
 
-        [HttpGet("{customerId:guid}", Name = "Patient_GetById")]
-        public async Task<IActionResult> GetById(Guid customerId)
+        [HttpGet("{patientId:guid}", Name = "Patient_GetById")]
+        public async Task<IActionResult> GetById(Guid patientId)
         {
-            var result = await _mediator.Send(new GetByIdCustomerQuery(customerId));
+            var result = await _mediator.Send(new GetByIdCustomerQuery(patientId));
             await Task.Delay(6);
             return result.Match(
                 patient => Ok(patient),
@@ -40,11 +40,11 @@ namespace PatientService.Api.Controllers
             );
         }
 
-        [HttpPost("{customerId:guid}/addresses")]
-        public async Task<IActionResult> AddAddress(Guid customerId, [FromBody] AddCustomerAddressRequestDto request)
+        [HttpPost("{patientId:guid}/addresses")]
+        public async Task<IActionResult> AddAddress(Guid patientId, [FromBody] AddCustomerAddressRequestDto request)
         {
             var result = await _mediator.Send(new AddCustomerAddressCommand(
-                customerId,
+                patientId,
                 request.Street,
                 request.District,
                 request.Province,
@@ -56,17 +56,17 @@ namespace PatientService.Api.Controllers
             return CreatedAtAction(nameof(GetPatientAddress), new { addressId = result }, new { result });
         }
 
-        [HttpGet("{customerId:guid}/addresses/{addressId:guid}")]
-        public async Task<IActionResult> GetPatientAddress(Guid customerId, Guid addressId)
+        [HttpGet("{patientId:guid}/addresses/{addressId:guid}")]
+        public async Task<IActionResult> GetPatientAddress(Guid patientId, Guid addressId)
         {
-            var result = await _mediator.Send(new GetCustomerAddressByIdQuery(customerId, addressId));
+            var result = await _mediator.Send(new GetCustomerAddressByIdQuery(patientId, addressId));
             return Ok(result);
         }
 
-        [HttpGet("{customerId:guid}/addresses")]
-        public async Task<IActionResult> GetPatientAddressAll(Guid customerId)
+        [HttpGet("{patientId:guid}/addresses")]
+        public async Task<IActionResult> GetPatientAddressAll(Guid patientId)
         {
-            var result = await _mediator.Send(new GetByIdCustomerQuery(customerId));
+            var result = await _mediator.Send(new GetByIdCustomerQuery(patientId));
             return Ok();
         }
     }
