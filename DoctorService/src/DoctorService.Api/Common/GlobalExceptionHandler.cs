@@ -1,12 +1,12 @@
-using ProductService.Application.Common.Exceptions;
-using ProductService.Domain.Exceptions;
+ï»¿using DoctorService.Application.Common.Exceptions;
+using DoctorService.Domain.Exceptions;
 using FluentValidation;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace ProductService.Api.Common
+namespace DoctorService.Api.Common
 {
     public sealed class GlobalExceptionHandler : IExceptionHandler
     {
@@ -44,8 +44,29 @@ namespace ProductService.Api.Common
                             Status = StatusCodes.Status400BadRequest,
                             // Si quieres, usa el RFC de 400:
                             Type = "https://tools.ietf.org/html/rfc9110#section-15.5.1",
-                            Detail = "Uno o más campos tienen errores."
+                            Detail = "Uno o mÃ¡s campos tienen errores."
                         };
+                        break;
+                    }
+                case BusinessRuleViolationException bex:
+                    {
+                        httpContext.Response.StatusCode = StatusCodes.Status422UnprocessableEntity;
+
+                        //var errors = bex.Errors
+                        //    .GroupBy(e => e.Key)
+                        //    .ToDictionary(
+                        //        g => g.Key,
+                        //        g => g.SelectMany(e => e.Value).Distinct().ToArray()
+                        //    );
+
+                        problem = new ProblemDetails()
+                        {
+                            Title = "Domain validation failed",
+                            Status = StatusCodes.Status422UnprocessableEntity,
+                            Type = "https://tools.ietf.org/html/rfc4918#section-11.2",
+                            Detail = bex.Message
+                        };
+                        problem.Extensions["code"] = bex.Code;
                         break;
                     }
                 case DomainValidationException dex:
@@ -64,7 +85,7 @@ namespace ProductService.Api.Common
                             Title = "Domain validation failed",
                             Status = StatusCodes.Status422UnprocessableEntity,
                             Type = "https://tools.ietf.org/html/rfc4918#section-11.2",
-                            Detail = "La operación no se pudo completar debido a errores de validación en el dominio."
+                            Detail = "La operaciÃ³n no se pudo completar debido a errores de validaciÃ³n en el dominio."
                         };
                         problem.Extensions["code"] = dex.Code;
                         break;
@@ -91,13 +112,13 @@ namespace ProductService.Api.Common
                             Title = "Unexpected error",
                             Status = StatusCodes.Status500InternalServerError,
                             Type = "https://tools.ietf.org/html/rfc9110#section-15.6.1",
-                            Detail = "Ocurrió un error inesperado."
+                            Detail = "OcurriÃ³ un error inesperado."
                         };
                         break;
                     }
             }
 
-            // IDs útiles (sin filtrar información sensible)
+            // IDs Ãºtiles (sin filtrar informaciÃ³n sensible)
             problem.Extensions["traceId"] = Activity.Current?.Id ?? httpContext.TraceIdentifier;
 
             if (httpContext.Request.Headers.TryGetValue("X-Correlation-ID", out var corr) && !string.IsNullOrWhiteSpace(corr))

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ryh6XHpZ0lc=",
+  "dgSpecHash": "Na9uY+dNt+M=",
   "success": true,
-  "projectFilePath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\ProductService\\src\\ProductService.Domain\\ProductService.Domain.csproj",
+  "projectFilePath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\DoctorService\\src\\DoctorService.Domain\\DoctorService.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pc\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512"
   ],

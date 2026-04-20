@@ -1,16 +1,17 @@
-using ProductService.Api;
-using ProductService.Application;
-using ProductService.Infrastructure;
-using ProductService.Infrastructure.Configuration;
+using DoctorService.Api;
+using DoctorService.Application;
+using DoctorService.Infrastructure;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddPresentation();
-builder.Services.AddApplication();
-builder.Services.AddInfrastructure(builder.Configuration);
+// Add services to the container.
 
-await VaultConfigurationLoader.LoadVaultSecretsInfoConfigurationAsync(builder, CancellationToken.None);
+builder.Services.AddPresentation();
+
+builder.Services.AddApplication();
+
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 

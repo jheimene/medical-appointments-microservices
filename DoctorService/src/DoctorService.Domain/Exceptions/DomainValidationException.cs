@@ -1,5 +1,5 @@
-
-namespace ProductService.Domain.Exceptions
+﻿
+namespace DoctorService.Domain.Exceptions
 {
     public class DomainValidationException : DomainException
     {

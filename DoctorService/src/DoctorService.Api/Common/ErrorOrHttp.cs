@@ -1,7 +1,7 @@
-using ErrorOr;
+Ôªøusing ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ProductService.Api.Common
+namespace DoctorService.Api.Common
 {
     public class ErrorOrHttp
     {
@@ -18,11 +18,11 @@ namespace ProductService.Api.Common
 
                 var vpd = new ValidationProblemDetails(dict)
                 {
-                    Title = "Errores de validaciÛn",
+                    Title = "Errores de validaci√≥n",
                     Status = StatusCodes.Status400BadRequest,
                     Instance = controller.HttpContext.Request.Path,
                     Type = "https://tools.ietf.org/html/rfc9110#section-15.5.1",
-                    Detail = "Uno o m·s campos tienen errores"
+                    Detail = "Uno o m√°s campos tienen errores"
                 };
 
                 vpd.Extensions["traceId"] = controller.HttpContext.TraceIdentifier;
@@ -31,7 +31,7 @@ namespace ProductService.Api.Common
                 //return ValidationProblem(controller, errors);
             }
 
-            // Caso 2: errores ìnormalesî -> ProblemDetails
+            // Caso 2: errores ‚Äúnormales‚Äù -> ProblemDetails
             var first = errors[0];
             var status = MapStatusCode(first.Type);
 
@@ -41,7 +41,7 @@ namespace ProductService.Api.Common
                 Status = status,
                 Instance = controller.HttpContext.Request.Path,
                 Type = $"https://httpstatuses.com/{status}",
-                Detail = "Uno o m·s errores ocurrieron durante la operaciÛn"
+                Detail = "Uno o m√°s errores ocurrieron durante la operaci√≥n"
             };
 
             pd.Extensions["traceId"] = controller.HttpContext.TraceIdentifier;
@@ -113,11 +113,11 @@ namespace ProductService.Api.Common
 
             var vpd = new ValidationProblemDetails(dict)
             {
-                Title = "Errores de validaciÛn",
+                Title = "Errores de validaci√≥n",
                 Status = StatusCodes.Status400BadRequest,
                 Instance = controller.HttpContext?.Request?.Path.Value,
                 Type = "https://tools.ietf.org/html/rfc9110#section-15.5.1",
-                Detail = "Uno o m·s campos tienen errores"
+                Detail = "Uno o m√°s campos tienen errores"
             };
 
             return new BadRequestObjectResult(vpd);

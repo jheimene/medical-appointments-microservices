@@ -1,4 +1,4 @@
-namespace ProductService.Domain.Exceptions
+﻿namespace DoctorService.Domain.Exceptions
 {
     internal sealed class InvalidDomainStateException : DomainException
     {

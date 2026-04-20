@@ -1,19 +1,19 @@
-
-namespace ProductService.Domain.Common
+﻿
+namespace DoctorService.Domain.Common
 {
     public abstract class AggregateRoot<TId, TUser> : AuditableEntity<TId, TUser>
     {
-        private readonly List<IDomainEvent> _domainEvents = new();
+        private readonly List<DomainEvent> _domainEvents = new();
 
         protected AggregateRoot() { }
 
         protected AggregateRoot(TId id) : base(id) { }
 
-        public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+        public IReadOnlyCollection<DomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
-        protected void AddDomainEvent(IDomainEvent @event) => _domainEvents.Add(@event);
+        protected void AddDomainEvent(DomainEvent @event) => _domainEvents.Add(@event);
 
-        protected void RemoveDomainEvent(IDomainEvent @event) => _domainEvents.Remove(@event);
+        protected void RemoveDomainEvent(DomainEvent @event) => _domainEvents.Remove(@event);
 
         public void ClearDomainEvents() => _domainEvents.Clear();
 

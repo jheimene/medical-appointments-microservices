@@ -1,7 +1,7 @@
-using FluentValidation;
+﻿using FluentValidation;
 using MediatR;
 
-namespace ProductService.Application.Common.Behaviors
+namespace DoctorService.Application.Common.Behaviors
 {
     public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : notnull

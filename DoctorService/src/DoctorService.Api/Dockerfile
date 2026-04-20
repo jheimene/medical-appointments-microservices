@@ -12,19 +12,19 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["ProductService/src/ProductService.Api/ProductService.Api.csproj", "ProductService/src/ProductService.Api/"]
-RUN dotnet restore "./ProductService/src/ProductService.Api/ProductService.Api.csproj"
+COPY ["CustomerService/src/CustomerService.Api/CustomerService.Api.csproj", "CustomerService/src/CustomerService.Api/"]
+RUN dotnet restore "./CustomerService/src/CustomerService.Api/CustomerService.Api.csproj"
 COPY . .
-WORKDIR "/src/ProductService/src/ProductService.Api"
-RUN dotnet build "./ProductService.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/CustomerService/src/CustomerService.Api"
+RUN dotnet build "./CustomerService.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Esta fase se usa para publicar el proyecto de servicio que se copiará en la fase final.
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./ProductService.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./CustomerService.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # Esta fase se usa en producción o cuando se ejecuta desde VS en modo normal (valor predeterminado cuando no se usa la configuración de depuración)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ProductService.Api.dll"]
+ENTRYPOINT ["dotnet", "CustomerService.Api.dll"]

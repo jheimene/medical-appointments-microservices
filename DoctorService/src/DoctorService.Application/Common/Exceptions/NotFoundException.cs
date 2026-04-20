@@ -1,4 +1,4 @@
-namespace ProductService.Application.Common.Exceptions
+﻿namespace DoctorService.Application.Common.Exceptions
 {
     public sealed class NotFoundException : ApplicationException
     {

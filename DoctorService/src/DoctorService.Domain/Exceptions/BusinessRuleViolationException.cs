@@ -1,6 +1,6 @@
-namespace ProductService.Domain.Exceptions
+﻿namespace DoctorService.Domain.Exceptions
 {
-    internal sealed class BusinessRuleViolationException : DomainException
+    public sealed class BusinessRuleViolationException : DomainException
     {
         public BusinessRuleViolationException(string code, string message): base(code, message) { } 
     }

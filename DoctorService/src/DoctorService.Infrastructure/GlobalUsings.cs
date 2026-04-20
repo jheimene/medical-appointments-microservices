@@ -1,3 +1,3 @@
-
-global using ProductService.Domain.Products;
-global using ProductService.Domain.Categories;
+﻿
+global using DoctorService.Domain.Entities;
+global using DoctorService.Domain.ValueObjects;

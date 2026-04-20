@@ -1,9 +1,9 @@
-
+﻿
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace ProductService.Infrastructure.Persistence.Contexts
+namespace DoctorService.Infrastructure.Persistence.Contexts
 {
     public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {
@@ -11,7 +11,7 @@ namespace ProductService.Infrastructure.Persistence.Contexts
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionsBuilder
-                .UseSqlServer("Server=localhost,1434;Database=bd_product;User Id=sa;Password=abc12345$;TrustServerCertificate=True;")
+                .UseSqlServer("Server=localhost,1434;Database=bd_customer;User Id=sa;Password=abc12345$;TrustServerCertificate=True;")
                 .EnableSensitiveDataLogging();
 
             return new ApplicationDbContext(optionsBuilder.Options, new NoOpPublisher());

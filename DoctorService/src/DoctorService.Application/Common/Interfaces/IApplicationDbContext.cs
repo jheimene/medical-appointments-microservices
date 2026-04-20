@@ -1,5 +1,5 @@
-
-namespace ProductService.Application.Commmon.Interfaces
+﻿
+namespace DoctorService.Application.Commmon.Interfaces
 {
     public interface IApplicationDbContext
     {

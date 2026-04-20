@@ -1,6 +1,6 @@
-using MediatR;
+﻿using MediatR;
 
-namespace ProductService.Domain.Common
+namespace DoctorService.Domain.Common
 {
     public interface IDomainEvent : INotification
     {

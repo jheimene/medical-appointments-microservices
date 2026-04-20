@@ -1,4 +1,4 @@
-namespace ProductService.Application.Commmon.Exceptions
+﻿namespace DoctorService.Application.Commmon.Exceptions
 {
     public class ForbiddenAccessException : Exception
     {

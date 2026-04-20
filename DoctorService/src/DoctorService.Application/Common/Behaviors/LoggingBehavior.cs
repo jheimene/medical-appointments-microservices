@@ -1,7 +1,7 @@
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace ProductService.Application.Common.Behaviors
+namespace DoctorService.Application.Common.Behaviors
 {
     public sealed class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : notnull

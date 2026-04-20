@@ -1,15 +1,20 @@
-
-using Microsoft.AspNetCore.Http.Features;
+Ôªø
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
-namespace ProductService.Api
+namespace DoctorService.Api
 {
     public static class DependencyInjection
     {
         public static IServiceCollection AddPresentation(this IServiceCollection services)
         {
-            
+            services.AddControllers();
+              //.AddJsonOptions(o =>
+              //{
+              //    //o.AllowInputFormatterExceptionMessages = false;
+              //});
+
+
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = context =>
@@ -20,11 +25,11 @@ namespace ProductService.Api
                         context.HttpContext,
                         context.ModelState,
                         statusCode: StatusCodes.Status400BadRequest,
-                        title: "Solicitud inv·lida",
-                        detail: "Solicitud inv·lida",
+                        title: "Solicitud inv√°lida",
+                        detail: "Solicitud inv√°lida",
                         instance: context.HttpContext.Request.Path);
 
-                    // Sanitiza errores (quita detalles tÈcnicos)
+                    // Sanitiza errores (quita detalles t√©cnicos)
                     var sanitized = new Dictionary<string, string[]>();
                     foreach (var kv in problem.Errors)
                     {
@@ -32,7 +37,7 @@ namespace ProductService.Api
 
                         var messages = kv.Value
                             .Select(m => m.Contains("could not be converted", StringComparison.OrdinalIgnoreCase)
-                                ? "Formato inv·lido."
+                                ? "Formato inv√°lido."
                                 : m)
                             .ToArray();
 
@@ -46,7 +51,7 @@ namespace ProductService.Api
                     return new BadRequestObjectResult(problem);
                 };
 
-                //Evita que el framework mande autom·ticamente un 400 Bad Request con detalles de validaciÛn
+                //Evita que el framework mande autom√°ticamente un 400 Bad Request con detalles de validaci√≥n
 
                 //options.InvalidModelStateResponseFactory = context =>
                 //{
@@ -65,18 +70,8 @@ namespace ProductService.Api
                 //};
             });
 
-            services.Configure<FormOptions>(options =>
-            {
-                options.MultipartBodyLengthLimit = 10 * 1024 * 1024;
-            });
 
-            services.AddControllers()
-                .AddNewtonsoftJson();
-            //.AddJsonOptions(o =>
-            //{
-            //    //o.AllowInputFormatterExceptionMessages = false;
-            //});
-
+          
             // 1. Permite que el sistema encuentre los endpoints (especialmente Minimal APIs)
             services.AddEndpointsApiExplorer();
 

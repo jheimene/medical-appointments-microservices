@@ -1,2 +1,2 @@
-
-global using ProductService.Api.Common;
+﻿
+global using DoctorService.Api.Common;

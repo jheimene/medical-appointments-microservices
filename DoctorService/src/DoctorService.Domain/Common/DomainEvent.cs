@@ -1,5 +1,5 @@
-
-namespace ProductService.Domain.Common
+﻿
+namespace DoctorService.Domain.Common
 {
     public abstract class DomainEvent : IDomainEvent
     {

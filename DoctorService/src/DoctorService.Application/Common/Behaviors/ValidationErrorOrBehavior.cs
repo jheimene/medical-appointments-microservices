@@ -1,8 +1,8 @@
-using ErrorOr;
+﻿using ErrorOr;
 using FluentValidation;
 using MediatR;
 
-namespace ProductService.Application.Behaviors.Common
+namespace DoctorService.Application.Behaviors.Common
 {
     public class ValidationErrorOrBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>

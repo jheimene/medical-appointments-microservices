@@ -1,12 +1,9 @@
-
-using ProductService.Domain.Common;
+ï»¿
+using DoctorService.Domain.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using ProductService.Domain.Products.ValueObjects;
-using ProductService.Domain.Brands;
-using ProductService.Domain.ProductsTypes;
 
-namespace ProductService.Infrastructure.Persistence.Contexts
+namespace DoctorService.Infrastructure.Persistence.Contexts
 {
     public class ApplicationDbContext : DbContext
     {
@@ -19,19 +16,14 @@ namespace ProductService.Infrastructure.Persistence.Contexts
             _publisher = publisher;
         }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Brand> Brands { get; set; }
-        public DbSet<ProductType> ProductsTypes { get; set; }
-        public DbSet<ProductSearch> ProductSearches { get; set; }
-        public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerAddress> Addresses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             var assembly = typeof(ApplicationDbContext).Assembly;
             modelBuilder.ApplyConfigurationsFromAssembly(assembly);
             modelBuilder.Ignore<DomainEvent>();
-            modelBuilder.Entity<ProductSearch>().ToTable("ProductSearch", "Product", t => t.ExcludeFromMigrations());
             base.OnModelCreating(modelBuilder);
         }
 
@@ -39,7 +31,7 @@ namespace ProductService.Infrastructure.Persistence.Contexts
         {
             //optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 
-            // Habilitar el logging de datos sensibles para desarrollo, pero no en producción
+            // Habilitar el logging de datos sensibles para desarrollo, pero no en producciÃ³n
             optionsBuilder.EnableSensitiveDataLogging();
             base.OnConfiguring(optionsBuilder);
         }
@@ -61,7 +53,7 @@ namespace ProductService.Infrastructure.Persistence.Contexts
         {
             var result = await base.SaveChangesAsync(cancellationToken);
 
-            // Después de guardar los cambios en la base de datos, se publican los eventos de dominio
+            // DespuÃ©s de guardar los cambios en la base de datos, se publican los eventos de dominio
             await DistpatchDomainEventsAsync(cancellationToken);
 
             return result;
@@ -70,8 +62,8 @@ namespace ProductService.Infrastructure.Persistence.Contexts
         private async Task DistpatchDomainEventsAsync(CancellationToken cancellationToken)
         {
             var domainEntities = ChangeTracker
-                .Entries<AggregateRoot<ProductId, string>>()
-                .Where(e => e.Entity.DomainEvents != null && e.Entity.DomainEvents.Count != 0)
+                .Entries<AggregateRoot<string, string>>()
+                .Where(e => e.Entity.DomainEvents != null && e.Entity.DomainEvents.Any())
                 .ToList();
 
             var domainEvents = domainEntities

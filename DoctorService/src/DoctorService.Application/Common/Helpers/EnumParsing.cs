@@ -1,4 +1,4 @@
-namespace ProductService.Application.Common.Helpers
+﻿namespace DoctorService.Application.Common.Helpers
 {
     public static class EnumParsing
     {

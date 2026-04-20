@@ -1,3 +1,4 @@
-
-global using ProductService.Domain.Common;
-global using ProductService.Domain.Exceptions;
+﻿
+global using DoctorService.Domain.Common;
+global using DoctorService.Domain.ValueObjects;
+global using DoctorService.Domain.Exceptions;

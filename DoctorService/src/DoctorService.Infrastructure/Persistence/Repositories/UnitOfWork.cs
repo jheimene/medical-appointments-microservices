@@ -1,8 +1,8 @@
+﻿
+using DoctorService.Application.Commmon.Interfaces;
+using DoctorService.Infrastructure.Persistence.Contexts;
 
-using ProductService.Application.Abstractions.Persistence;
-using ProductService.Infrastructure.Persistence.Contexts;
-
-namespace ProductService.Infrastructure.Persistence.Repositories
+namespace DoctorService.Infrastructure.Persistence.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {

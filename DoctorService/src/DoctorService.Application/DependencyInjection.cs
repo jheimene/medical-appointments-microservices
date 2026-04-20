@@ -1,13 +1,10 @@
-using ProductService.Application.Behaviors.Common;
+﻿using DoctorService.Application.Behaviors.Common;
 using FluentValidation;
 using MediatR;
 using MediatR.NotificationPublishers;
 using Microsoft.Extensions.DependencyInjection;
-using Mapster;
-using MapsterMapper;
-using ProductService.Application.Brands.Mappings;
 
-namespace ProductService.Application
+namespace DoctorService.Application
 {
     public static class DependencyInjection
     {
@@ -23,15 +20,11 @@ namespace ProductService.Application
             // Fluent Validation: Register all validators from the assembly, including internal types
             services.AddValidatorsFromAssembly(assembly, includeInternalTypes: true);
 
+
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationErrorOrBehavior<,>));
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(PerformanceBehavior<,>));
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehavior<,>));
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
-
-            var config = TypeAdapterConfig.GlobalSettings;
-            config.Scan(assembly);
-            services.AddSingleton(config);
-            //services.AddScoped<IMapper, ServiceMapper>();
 
             return services;
         }

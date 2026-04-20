@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net10.0": {
-      "AWSSDK.Core/4.0.3.19": {
+      "AWSSDK.Core/4.0.3.16": {
         "type": "package",
         "compile": {
           "lib/net8.0/AWSSDK.Core.dll": {
@@ -15,18 +15,40 @@
           }
         }
       },
-      "AWSSDK.S3/4.0.19.1": {
+      "AWSSDK.Extensions.NETCore.Setup/4.0.3.24": {
         "type": "package",
         "dependencies": {
-          "AWSSDK.Core": "[4.0.3.19, 5.0.0)"
+          "AWSSDK.Core": "4.0.3.16",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.0.0"
         },
         "compile": {
-          "lib/net8.0/AWSSDK.S3.dll": {
+          "lib/net8.0/AWSSDK.Extensions.NETCore.Setup.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/AWSSDK.S3.dll": {
+          "lib/net8.0/AWSSDK.Extensions.NETCore.Setup.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/AWSSDK.Extensions.NETCore.Setup.targets": {}
+        }
+      },
+      "AWSSDK.SecretsManager/4.0.4.8": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.3.16, 5.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.SecretsManager.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.SecretsManager.dll": {
             "related": ".xml"
           }
         }
@@ -63,19 +85,6 @@
         },
         "runtime": {
           "lib/net8.0/Azure.Identity.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Dapper/2.1.72": {
-        "type": "package",
-        "compile": {
-          "lib/net10.0/Dapper.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net10.0/Dapper.dll": {
             "related": ".xml"
           }
         }
@@ -136,27 +145,6 @@
           }
         }
       },
-      "Mapster/7.4.0": {
-        "type": "package",
-        "dependencies": {
-          "Mapster.Core": "1.2.1"
-        },
-        "compile": {
-          "lib/net7.0/Mapster.dll": {}
-        },
-        "runtime": {
-          "lib/net7.0/Mapster.dll": {}
-        }
-      },
-      "Mapster.Core/1.2.1": {
-        "type": "package",
-        "compile": {
-          "lib/net7.0/Mapster.Core.dll": {}
-        },
-        "runtime": {
-          "lib/net7.0/Mapster.Core.dll": {}
-        }
-      },
       "MediatR/14.0.0": {
         "type": "package",
         "dependencies": {
@@ -188,25 +176,6 @@
             "related": ".xml"
           }
         }
-      },
-      "Microsoft.AspNetCore.JsonPatch/10.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "13.0.3"
-        },
-        "compile": {
-          "lib/net10.0/Microsoft.AspNetCore.JsonPatch.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net10.0/Microsoft.AspNetCore.JsonPatch.dll": {
-            "related": ".xml"
-          }
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       },
       "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
         "type": "package",
@@ -774,10 +743,10 @@
           "Microsoft.EntityFrameworkCore.Design": "10.0.3"
         }
       },
-      "Microsoft.Extensions.Caching.Abstractions/10.0.5": {
+      "Microsoft.Extensions.Caching.Abstractions/10.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "10.0.5"
+          "Microsoft.Extensions.Primitives": "10.0.3"
         },
         "compile": {
           "lib/net10.0/Microsoft.Extensions.Caching.Abstractions.dll": {
@@ -814,25 +783,6 @@
         },
         "build": {
           "buildTransitive/net8.0/_._": {}
-        }
-      },
-      "Microsoft.Extensions.Caching.StackExchangeRedis/10.0.5": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Caching.Abstractions": "10.0.5",
-          "Microsoft.Extensions.Logging.Abstractions": "10.0.5",
-          "Microsoft.Extensions.Options": "10.0.5",
-          "StackExchange.Redis": "2.7.27"
-        },
-        "compile": {
-          "lib/net10.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net10.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.Extensions.Configuration/10.0.3": {
@@ -913,7 +863,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.5": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.3": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
@@ -966,10 +916,10 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/10.0.5": {
+      "Microsoft.Extensions.Logging.Abstractions/10.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.5"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.3"
         },
         "compile": {
           "lib/net10.0/Microsoft.Extensions.Logging.Abstractions.dll": {
@@ -985,11 +935,11 @@
           "buildTransitive/net8.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
         }
       },
-      "Microsoft.Extensions.Options/10.0.5": {
+      "Microsoft.Extensions.Options/10.0.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.5",
-          "Microsoft.Extensions.Primitives": "10.0.5"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.3",
+          "Microsoft.Extensions.Primitives": "10.0.3"
         },
         "compile": {
           "lib/net10.0/Microsoft.Extensions.Options.dll": {
@@ -1005,7 +955,7 @@
           "buildTransitive/net8.0/Microsoft.Extensions.Options.targets": {}
         }
       },
-      "Microsoft.Extensions.Primitives/10.0.5": {
+      "Microsoft.Extensions.Primitives/10.0.3": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
@@ -1193,43 +1143,12 @@
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/_._": {
             "related": ".xml"
           }
         },
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Pipelines.Sockets.Unofficial/2.2.8": {
-        "type": "package",
-        "compile": {
-          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "StackExchange.Redis/2.11.8": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
-          "Pipelines.Sockets.Unofficial": "2.2.8",
-          "System.IO.Hashing": "10.0.2"
-        },
-        "compile": {
-          "lib/net8.0/StackExchange.Redis.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/StackExchange.Redis.dll": {
             "related": ".xml"
           }
         }
@@ -1440,22 +1359,6 @@
           }
         }
       },
-      "System.IO.Hashing/10.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/net10.0/System.IO.Hashing.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net10.0/System.IO.Hashing.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net8.0/_._": {}
-        }
-      },
       "System.Memory.Data/8.0.1": {
         "type": "package",
         "compile": {
@@ -1523,51 +1426,49 @@
           }
         }
       },
-      "ProductService.Application/1.0.0": {
+      "DoctorService.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "ErrorOr": "2.0.1",
           "FluentValidation": "12.1.1",
           "FluentValidation.DependencyInjectionExtensions": "12.1.1",
-          "Mapster": "7.4.0",
           "MediatR": "14.0.0",
-          "Microsoft.AspNetCore.JsonPatch": "10.0.3",
           "Microsoft.Extensions.DependencyInjection": "10.0.3",
-          "ProductService.Domain": "1.0.0"
+          "DoctorService.Domain": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/ProductService.Application.dll": {}
+          "bin/placeholder/DoctorService.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ProductService.Application.dll": {}
+          "bin/placeholder/DoctorService.Application.dll": {}
         }
       },
-      "ProductService.Domain/1.0.0": {
+      "DoctorService.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "MediatR.Contracts": "2.0.1"
         },
         "compile": {
-          "bin/placeholder/ProductService.Domain.dll": {}
+          "bin/placeholder/DoctorService.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ProductService.Domain.dll": {}
+          "bin/placeholder/DoctorService.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "AWSSDK.Core/4.0.3.19": {
-      "sha512": "8zIzN59+J6arYSyFuhnSxPepr8ff4p6li+MxKUUnqCgwZqQ+icEGJK/23c1USIEALqZZ5gdiITuH2sOZWQom+Q==",
+    "AWSSDK.Core/4.0.3.16": {
+      "sha512": "YXD+PjFUIlbSHe1/CtDPhRr4hfdapHLE543sXCrqmvI8fi1HxgX6c1au5pgqboP7M5xIk7us142R4dufnyJCeg==",
       "type": "package",
-      "path": "awssdk.core/4.0.3.19",
+      "path": "awssdk.core/4.0.3.16",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "awssdk.core.4.0.3.19.nupkg.sha512",
+        "awssdk.core.4.0.3.16.nupkg.sha512",
         "awssdk.core.nuspec",
         "images/AWSLogo.png",
         "lib/net472/AWSSDK.Core.dll",
@@ -1581,27 +1482,49 @@
         "tools/account-management.ps1"
       ]
     },
-    "AWSSDK.S3/4.0.19.1": {
-      "sha512": "DCTFohRB53/g2kaz7cUX3ZTyFTbRErj5JvT4HrquKTvXvUpY/vUyUMGEVWoC0UXmxalYaPAR8tO7WgEJRJjM9w==",
+    "AWSSDK.Extensions.NETCore.Setup/4.0.3.24": {
+      "sha512": "kXejZS6kptMWrgtdiHY1gnDwfz7MOsvD8zM1pu/2l5KudmW7CQsbQgD76bmbQKVEFTTA1WUlWO7aTH3qGdZgHg==",
       "type": "package",
-      "path": "awssdk.s3/4.0.19.1",
+      "path": "awssdk.extensions.netcore.setup/4.0.3.24",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ConfigurationSchema.json",
+        "awssdk.extensions.netcore.setup.4.0.3.24.nupkg.sha512",
+        "awssdk.extensions.netcore.setup.nuspec",
+        "buildTransitive/net8.0/AWSSDK.Extensions.NETCore.Setup.targets",
+        "buildTransitive/netcoreapp3.1/AWSSDK.Extensions.NETCore.Setup.targets",
+        "buildTransitive/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.targets",
+        "images/AWSLogo.png",
+        "lib/net8.0/AWSSDK.Extensions.NETCore.Setup.dll",
+        "lib/net8.0/AWSSDK.Extensions.NETCore.Setup.xml",
+        "lib/netcoreapp3.1/AWSSDK.Extensions.NETCore.Setup.dll",
+        "lib/netcoreapp3.1/AWSSDK.Extensions.NETCore.Setup.xml",
+        "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.dll",
+        "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.xml"
+      ]
+    },
+    "AWSSDK.SecretsManager/4.0.4.8": {
+      "sha512": "nWQlxsPd8sW/jNnfkto8VRlKlLVRmPv7b5CnomWt0nZdYI1jQZP0Q0+qm6Gewjd9Be8G6ag+4xzdAVtoKaixWg==",
+      "type": "package",
+      "path": "awssdk.secretsmanager/4.0.4.8",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "analyzers/dotnet/cs/AWSSDK.S3.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/AWSSDK.SecretsManager.CodeAnalysis.dll",
         "analyzers/dotnet/cs/SharedAnalysisCode.dll",
-        "awssdk.s3.4.0.19.1.nupkg.sha512",
-        "awssdk.s3.nuspec",
+        "awssdk.secretsmanager.4.0.4.8.nupkg.sha512",
+        "awssdk.secretsmanager.nuspec",
         "images/AWSLogo.png",
-        "lib/net472/AWSSDK.S3.dll",
-        "lib/net472/AWSSDK.S3.xml",
-        "lib/net8.0/AWSSDK.S3.dll",
-        "lib/net8.0/AWSSDK.S3.xml",
-        "lib/netcoreapp3.1/AWSSDK.S3.dll",
-        "lib/netcoreapp3.1/AWSSDK.S3.xml",
-        "lib/netstandard2.0/AWSSDK.S3.dll",
-        "lib/netstandard2.0/AWSSDK.S3.xml",
+        "lib/net472/AWSSDK.SecretsManager.dll",
+        "lib/net472/AWSSDK.SecretsManager.xml",
+        "lib/net8.0/AWSSDK.SecretsManager.dll",
+        "lib/net8.0/AWSSDK.SecretsManager.xml",
+        "lib/netcoreapp3.1/AWSSDK.SecretsManager.dll",
+        "lib/netcoreapp3.1/AWSSDK.SecretsManager.xml",
+        "lib/netstandard2.0/AWSSDK.SecretsManager.dll",
+        "lib/netstandard2.0/AWSSDK.SecretsManager.xml",
         "tools/install.ps1",
         "tools/uninstall.ps1"
       ]
@@ -1644,27 +1567,6 @@
         "lib/net8.0/Azure.Identity.xml",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
-      ]
-    },
-    "Dapper/2.1.72": {
-      "sha512": "ns4mGqQd9a/MhP8m6w556vVlZIa0/MfUu03zrxjZC/jlr1uVCsUac8bkdB+Fs98Llbd56rRSo1eZH5VVmeGZyw==",
-      "type": "package",
-      "path": "dapper/2.1.72",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Dapper.png",
-        "dapper.2.1.72.nupkg.sha512",
-        "dapper.nuspec",
-        "lib/net10.0/Dapper.dll",
-        "lib/net10.0/Dapper.xml",
-        "lib/net461/Dapper.dll",
-        "lib/net461/Dapper.xml",
-        "lib/net8.0/Dapper.dll",
-        "lib/net8.0/Dapper.xml",
-        "lib/netstandard2.0/Dapper.dll",
-        "lib/netstandard2.0/Dapper.xml",
-        "readme.md"
       ]
     },
     "ErrorOr/2.0.1": {
@@ -1732,34 +1634,6 @@
         "logo.png"
       ]
     },
-    "Mapster/7.4.0": {
-      "sha512": "RYGoDqvS4WTKIq0HDyPBBVIj6N0mluOCXQ1Vk95JKseMHEsbCXSEGKSlP95oL+s42IXAXbqvHj7p0YaRBUcfqg==",
-      "type": "package",
-      "path": "mapster/7.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.png",
-        "lib/net6.0/Mapster.dll",
-        "lib/net7.0/Mapster.dll",
-        "mapster.7.4.0.nupkg.sha512",
-        "mapster.nuspec"
-      ]
-    },
-    "Mapster.Core/1.2.1": {
-      "sha512": "11lokmfliBEMMmjeqxFGNpqGXq6tN96zFqpBmfYeahr4Ybk63oDmeJmOflsATjobYkX248g5Y62oQ2NNnZaeww==",
-      "type": "package",
-      "path": "mapster.core/1.2.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.png",
-        "lib/net6.0/Mapster.Core.dll",
-        "lib/net7.0/Mapster.Core.dll",
-        "mapster.core.1.2.1.nupkg.sha512",
-        "mapster.core.nuspec"
-      ]
-    },
     "MediatR/14.0.0": {
       "sha512": "r5fwUO6NBvOFKaiMRx/gRrD1MEHHOio5yEdzSLs2OMeD2e9ZKnZaBQM6A6vVBEWJF4VY41vplXmDMOY1YvpqNA==",
       "type": "package",
@@ -1796,26 +1670,6 @@
         "lib/netstandard2.0/MediatR.Contracts.xml",
         "mediatr.contracts.2.0.1.nupkg.sha512",
         "mediatr.contracts.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.JsonPatch/10.0.3": {
-      "sha512": "IHsqsECi1N2FJ0RmV73Cmp6qusu4vGBhUuWJFyJAC/LekFdwSa5zacZE80Sd8M2fD9ZXgEaA32y5qcj3jh3wlQ==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.jsonpatch/10.0.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net10.0/Microsoft.AspNetCore.JsonPatch.dll",
-        "lib/net10.0/Microsoft.AspNetCore.JsonPatch.xml",
-        "lib/net462/Microsoft.AspNetCore.JsonPatch.dll",
-        "lib/net462/Microsoft.AspNetCore.JsonPatch.xml",
-        "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll",
-        "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.xml",
-        "microsoft.aspnetcore.jsonpatch.10.0.3.nupkg.sha512",
-        "microsoft.aspnetcore.jsonpatch.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/8.0.0": {
@@ -3156,10 +3010,10 @@
         "tools/net8.0/any/ef.runtimeconfig.json"
       ]
     },
-    "Microsoft.Extensions.Caching.Abstractions/10.0.5": {
-      "sha512": "k/QDdQ94/0Shi0KfU+e12m73jfQo+3JpErTtgpZfsCIqkvdEEO0XIx6R+iTbN55rNPaNhOqNY4/sB+jZ8XxVPw==",
+    "Microsoft.Extensions.Caching.Abstractions/10.0.3": {
+      "sha512": "5dtXBvI8t3z8pF4tB38JYgi/enCL/DwSXxpqShgFz3SHJ7IzqFIMs6Gu5ik8sNZzcO9qQs3xIDpB3vDamkYG+Q==",
       "type": "package",
-      "path": "microsoft.extensions.caching.abstractions/10.0.5",
+      "path": "microsoft.extensions.caching.abstractions/10.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3180,7 +3034,7 @@
         "lib/net9.0/Microsoft.Extensions.Caching.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.xml",
-        "microsoft.extensions.caching.abstractions.10.0.5.nupkg.sha512",
+        "microsoft.extensions.caching.abstractions.10.0.3.nupkg.sha512",
         "microsoft.extensions.caching.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -3212,26 +3066,6 @@
         "microsoft.extensions.caching.memory.10.0.3.nupkg.sha512",
         "microsoft.extensions.caching.memory.nuspec",
         "useSharedDesignerContext.txt"
-      ]
-    },
-    "Microsoft.Extensions.Caching.StackExchangeRedis/10.0.5": {
-      "sha512": "zXb143/TpEKOLQuWGw2CkJgb9F4XXh2XbevMvppzsIHr1/pjML0zjc+vzXcpCV8YUwpW5NIaScZhzFSm621B3Q==",
-      "type": "package",
-      "path": "microsoft.extensions.caching.stackexchangeredis/10.0.5",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net10.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll",
-        "lib/net10.0/Microsoft.Extensions.Caching.StackExchangeRedis.xml",
-        "lib/net462/Microsoft.Extensions.Caching.StackExchangeRedis.dll",
-        "lib/net462/Microsoft.Extensions.Caching.StackExchangeRedis.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Caching.StackExchangeRedis.xml",
-        "microsoft.extensions.caching.stackexchangeredis.10.0.5.nupkg.sha512",
-        "microsoft.extensions.caching.stackexchangeredis.nuspec"
       ]
     },
     "Microsoft.Extensions.Configuration/10.0.3": {
@@ -3363,10 +3197,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.5": {
-      "sha512": "iVMtq9eRvzyhx8949EGT0OCYJfXi737SbRVzWXE5GrOgGj5AaZ9eUuxA/BSUfmOMALKn/g8KfFaNQw0eiB3lyA==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.3": {
+      "sha512": "bwGMrRcAMWx2s/RDgja97p27rxSz2pEQW0+rX5cWAUWVETVJ/eyxGfjAl8vuG5a+lckWmPIE+vcuaZNVB5YDdw==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/10.0.5",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/10.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3389,7 +3223,7 @@
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.10.0.5.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.10.0.3.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -3454,10 +3288,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Logging.Abstractions/10.0.5": {
-      "sha512": "9HOdqlDtPptVcmKAjsQ/Nr5Rxfq6FMYLdhvZh1lVmeKR738qeYecQD7+ldooXf+u2KzzR1kafSphWngIM3C6ug==",
+    "Microsoft.Extensions.Logging.Abstractions/10.0.3": {
+      "sha512": "lxl0WLk7ROgBFAsjcOYjQ8/DVK+VMszxGBzUhgtQmAsTNldLL5pk9NG/cWTsXHq0lUhUEAtZkEE7jOGOA8bGKQ==",
       "type": "package",
-      "path": "microsoft.extensions.logging.abstractions/10.0.5",
+      "path": "microsoft.extensions.logging.abstractions/10.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3521,15 +3355,15 @@
         "lib/net9.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
-        "microsoft.extensions.logging.abstractions.10.0.5.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.10.0.3.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Options/10.0.5": {
-      "sha512": "MDaQMdUplw0AIRhWWmbLA7yQEXaLIHb+9CTroTiNS8OlI0LMXS4LCxtopqauiqGCWlRgJ+xyraVD8t6veRAFbw==",
+    "Microsoft.Extensions.Options/10.0.3": {
+      "sha512": "hU6WzGTPvPoLA2ng1ILvWQb3g0qORdlHNsxI8IcPLumJb3suimYUl+bbDzdo1V4KFsvVhnMWzysHpKbZaoDQPQ==",
       "type": "package",
-      "path": "microsoft.extensions.options/10.0.5",
+      "path": "microsoft.extensions.options/10.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3567,15 +3401,15 @@
         "lib/netstandard2.0/Microsoft.Extensions.Options.xml",
         "lib/netstandard2.1/Microsoft.Extensions.Options.dll",
         "lib/netstandard2.1/Microsoft.Extensions.Options.xml",
-        "microsoft.extensions.options.10.0.5.nupkg.sha512",
+        "microsoft.extensions.options.10.0.3.nupkg.sha512",
         "microsoft.extensions.options.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Primitives/10.0.5": {
-      "sha512": "/HUHJ0tw/LQvD0DZrz50eQy/3z7PfX7WWEaXnjKTV9/TNdcgFlNTZGo49QhS7PTmhDqMyHRMqAXSBxLh0vso4g==",
+    "Microsoft.Extensions.Primitives/10.0.3": {
+      "sha512": "GEcpTwo7sUoLGGNTqV1FZEuL+tTD9m81NX/mh099dqGNna07/UGZShKQNZRw4hv6nlliSUwYQgSYc7OR99Jufg==",
       "type": "package",
-      "path": "microsoft.extensions.primitives/10.0.5",
+      "path": "microsoft.extensions.primitives/10.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3596,7 +3430,7 @@
         "lib/net9.0/Microsoft.Extensions.Primitives.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
-        "microsoft.extensions.primitives.10.0.5.nupkg.sha512",
+        "microsoft.extensions.primitives.10.0.3.nupkg.sha512",
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -3865,53 +3699,6 @@
         "newtonsoft.json.13.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
-      ]
-    },
-    "Pipelines.Sockets.Unofficial/2.2.8": {
-      "sha512": "zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
-      "type": "package",
-      "path": "pipelines.sockets.unofficial/2.2.8",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net461/Pipelines.Sockets.Unofficial.dll",
-        "lib/net461/Pipelines.Sockets.Unofficial.xml",
-        "lib/net472/Pipelines.Sockets.Unofficial.dll",
-        "lib/net472/Pipelines.Sockets.Unofficial.xml",
-        "lib/net5.0/Pipelines.Sockets.Unofficial.dll",
-        "lib/net5.0/Pipelines.Sockets.Unofficial.xml",
-        "lib/netcoreapp3.1/Pipelines.Sockets.Unofficial.dll",
-        "lib/netcoreapp3.1/Pipelines.Sockets.Unofficial.xml",
-        "lib/netstandard2.0/Pipelines.Sockets.Unofficial.dll",
-        "lib/netstandard2.0/Pipelines.Sockets.Unofficial.xml",
-        "lib/netstandard2.1/Pipelines.Sockets.Unofficial.dll",
-        "lib/netstandard2.1/Pipelines.Sockets.Unofficial.xml",
-        "pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
-        "pipelines.sockets.unofficial.nuspec"
-      ]
-    },
-    "StackExchange.Redis/2.11.8": {
-      "sha512": "25UL0tkhQo3ATT+DAu9OyaPhyWRvJIYcID/iNM8gNWqapJCX4dB/Q2RBBHjv6rQ1utp92pUoxgtZdX25ZNLC6Q==",
-      "type": "package",
-      "path": "stackexchange.redis/2.11.8",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net461/StackExchange.Redis.dll",
-        "lib/net461/StackExchange.Redis.xml",
-        "lib/net472/StackExchange.Redis.dll",
-        "lib/net472/StackExchange.Redis.xml",
-        "lib/net6.0/StackExchange.Redis.dll",
-        "lib/net6.0/StackExchange.Redis.xml",
-        "lib/net8.0/StackExchange.Redis.dll",
-        "lib/net8.0/StackExchange.Redis.xml",
-        "lib/netcoreapp3.1/StackExchange.Redis.dll",
-        "lib/netcoreapp3.1/StackExchange.Redis.xml",
-        "lib/netstandard2.0/StackExchange.Redis.dll",
-        "lib/netstandard2.0/StackExchange.Redis.xml",
-        "stackexchange.redis.2.11.8.nupkg.sha512",
-        "stackexchange.redis.nuspec"
       ]
     },
     "System.ClientModel/1.5.1": {
@@ -4204,35 +3991,6 @@
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
-    "System.IO.Hashing/10.0.2": {
-      "sha512": "AKJknIFi9O3+rGExxTry188JPvUoZAPcCtS2qdqyFhIzsxQ1Ap94BeGDG0VzVEHakhmRxmJtVih6TsHoghIt/g==",
-      "type": "package",
-      "path": "system.io.hashing/10.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "PACKAGE.md",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/net461/System.IO.Hashing.targets",
-        "buildTransitive/net462/_._",
-        "buildTransitive/net8.0/_._",
-        "buildTransitive/netcoreapp2.0/System.IO.Hashing.targets",
-        "lib/net10.0/System.IO.Hashing.dll",
-        "lib/net10.0/System.IO.Hashing.xml",
-        "lib/net462/System.IO.Hashing.dll",
-        "lib/net462/System.IO.Hashing.xml",
-        "lib/net8.0/System.IO.Hashing.dll",
-        "lib/net8.0/System.IO.Hashing.xml",
-        "lib/net9.0/System.IO.Hashing.dll",
-        "lib/net9.0/System.IO.Hashing.xml",
-        "lib/netstandard2.0/System.IO.Hashing.dll",
-        "lib/netstandard2.0/System.IO.Hashing.xml",
-        "system.io.hashing.10.0.2.nupkg.sha512",
-        "system.io.hashing.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
     "System.Memory.Data/8.0.1": {
       "sha512": "BVYuec3jV23EMRDeR7Dr1/qhx7369dZzJ9IWy2xylvb4YfXsrUxspWc4UWYid/tj4zZK58uGZqn2WQiaDMhmAg==",
       "type": "package",
@@ -4365,31 +4123,29 @@
         "vaultsharp.nuspec"
       ]
     },
-    "ProductService.Application/1.0.0": {
+    "DoctorService.Application/1.0.0": {
       "type": "project",
-      "path": "../ProductService.Application/ProductService.Application.csproj",
-      "msbuildProject": "../ProductService.Application/ProductService.Application.csproj"
+      "path": "../DoctorService.Application/DoctorService.Application.csproj",
+      "msbuildProject": "../DoctorService.Application/DoctorService.Application.csproj"
     },
-    "ProductService.Domain/1.0.0": {
+    "DoctorService.Domain/1.0.0": {
       "type": "project",
-      "path": "../ProductService.Domain/ProductService.Domain.csproj",
-      "msbuildProject": "../ProductService.Domain/ProductService.Domain.csproj"
+      "path": "../DoctorService.Domain/DoctorService.Domain.csproj",
+      "msbuildProject": "../DoctorService.Domain/DoctorService.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "AWSSDK.S3 >= 4.0.19.1",
-      "Dapper >= 2.1.72",
+      "AWSSDK.Extensions.NETCore.Setup >= 4.0.3.24",
+      "AWSSDK.SecretsManager >= 4.0.4.8",
       "MediatR >= 14.0.0",
       "Microsoft.EntityFrameworkCore >= 10.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.3",
-      "Microsoft.Extensions.Caching.StackExchangeRedis >= 10.0.5",
       "Microsoft.Extensions.Configuration.Binder >= 10.0.3",
-      "ProductService.Application >= 1.0.0",
-      "ProductService.Domain >= 1.0.0",
-      "StackExchange.Redis >= 2.11.8",
+      "DoctorService.Application >= 1.0.0",
+      "DoctorService.Domain >= 1.0.0",
       "VaultSharp >= 1.17.5.1"
     ]
   },
@@ -4400,11 +4156,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\ProductService\\src\\ProductService.Infrastructure\\ProductService.Infrastructure.csproj",
-      "projectName": "ProductService.Infrastructure",
-      "projectPath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\ProductService\\src\\ProductService.Infrastructure\\ProductService.Infrastructure.csproj",
+      "projectUniqueName": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\DoctorService\\src\\DoctorService.Infrastructure\\DoctorService.Infrastructure.csproj",
+      "projectName": "DoctorService.Infrastructure",
+      "projectPath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\DoctorService\\src\\DoctorService.Infrastructure\\DoctorService.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-      "outputPath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\ProductService\\src\\ProductService.Infrastructure\\obj\\",
+      "outputPath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\DoctorService\\src\\DoctorService.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4426,11 +4182,11 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\ProductService\\src\\ProductService.Application\\ProductService.Application.csproj": {
-              "projectPath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\ProductService\\src\\ProductService.Application\\ProductService.Application.csproj"
+            "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\DoctorService\\src\\DoctorService.Application\\DoctorService.Application.csproj": {
+              "projectPath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\DoctorService\\src\\DoctorService.Application\\DoctorService.Application.csproj"
             },
-            "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\ProductService\\src\\ProductService.Domain\\ProductService.Domain.csproj": {
-              "projectPath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\ProductService\\src\\ProductService.Domain\\ProductService.Domain.csproj"
+            "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\DoctorService\\src\\DoctorService.Domain\\DoctorService.Domain.csproj": {
+              "projectPath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\DoctorService\\src\\DoctorService.Domain\\DoctorService.Domain.csproj"
             }
           }
         }
@@ -4452,13 +4208,13 @@
         "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
-          "AWSSDK.S3": {
+          "AWSSDK.Extensions.NETCore.Setup": {
             "target": "Package",
-            "version": "[4.0.19.1, )"
+            "version": "[4.0.3.24, )"
           },
-          "Dapper": {
+          "AWSSDK.SecretsManager": {
             "target": "Package",
-            "version": "[2.1.72, )"
+            "version": "[4.0.4.8, )"
           },
           "MediatR": {
             "target": "Package",
@@ -4484,17 +4240,9 @@
             "target": "Package",
             "version": "[10.0.3, )"
           },
-          "Microsoft.Extensions.Caching.StackExchangeRedis": {
-            "target": "Package",
-            "version": "[10.0.5, )"
-          },
           "Microsoft.Extensions.Configuration.Binder": {
             "target": "Package",
             "version": "[10.0.3, )"
-          },
-          "StackExchange.Redis": {
-            "target": "Package",
-            "version": "[2.11.8, )"
           },
           "VaultSharp": {
             "target": "Package",

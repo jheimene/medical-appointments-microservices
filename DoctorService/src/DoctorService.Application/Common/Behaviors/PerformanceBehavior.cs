@@ -1,8 +1,8 @@
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-namespace ProductService.Application.Common.Behaviors
+namespace DoctorService.Application.Common.Behaviors
 {
     public class PerformanceBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : notnull
