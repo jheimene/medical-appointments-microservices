@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Application.Customers.Queries.GetCustomerAddressById
+﻿namespace PatientService.Application.Customers.Queries.GetCustomerAddressById
 {
     public record class GetCustomerAddressByIdQueryResponse(
         Guid CustomerId,

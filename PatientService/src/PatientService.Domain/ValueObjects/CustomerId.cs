@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Domain.ValueObjects
+﻿namespace PatientService.Domain.ValueObjects
 {
     public readonly record struct CustomerId(Guid Value)
     {

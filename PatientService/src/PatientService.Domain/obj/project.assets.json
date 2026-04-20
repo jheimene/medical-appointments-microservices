@@ -45,11 +45,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Domain\\CustomerService.Domain.csproj",
-      "projectName": "CustomerService.Domain",
-      "projectPath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Domain\\CustomerService.Domain.csproj",
+      "projectUniqueName": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\PatientService\\src\\PatientService.Domain\\PatientService.Domain.csproj",
+      "projectName": "PatientService.Domain",
+      "projectPath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\PatientService\\src\\PatientService.Domain\\PatientService.Domain.csproj",
       "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-      "outputPath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Domain\\obj\\",
+      "outputPath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\PatientService\\src\\PatientService.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

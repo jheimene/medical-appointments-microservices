@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Domain.Exceptions
+﻿namespace PatientService.Domain.Exceptions
 {
     internal sealed class InvalidDomainStateException : DomainException
     {

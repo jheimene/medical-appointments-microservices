@@ -1,9 +1,9 @@
 ﻿
-using CustomerService.Domain.Interfaces;
-using CustomerService.Infrastructure.Persistence.Contexts;
+using PatientService.Domain.Interfaces;
+using PatientService.Infrastructure.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 
-namespace CustomerService.Infrastructure.Persistence.Repositories
+namespace PatientService.Infrastructure.Persistence.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {

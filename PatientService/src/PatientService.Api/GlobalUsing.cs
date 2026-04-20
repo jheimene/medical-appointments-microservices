@@ -1,2 +1,2 @@
 ﻿
-global using CustomerService.Api.Common;
+global using PatientService.Api.Common;

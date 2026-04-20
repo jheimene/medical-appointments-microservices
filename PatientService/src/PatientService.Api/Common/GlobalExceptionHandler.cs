@@ -1,12 +1,12 @@
-﻿using CustomerService.Application.Common.Exceptions;
-using CustomerService.Domain.Exceptions;
+﻿using PatientService.Application.Common.Exceptions;
+using PatientService.Domain.Exceptions;
 using FluentValidation;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace CustomerService.Api.Common
+namespace PatientService.Api.Common
 {
     public sealed class GlobalExceptionHandler : IExceptionHandler
     {

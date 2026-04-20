@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Results;
 
-namespace CustomerService.Application.Commmon.Exceptions
+namespace PatientService.Application.Commmon.Exceptions
 {
     public class ValidationException : Exception
     {

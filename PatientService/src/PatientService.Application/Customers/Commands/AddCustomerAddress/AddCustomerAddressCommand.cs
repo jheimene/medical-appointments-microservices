@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CustomerService.Application.Customers.Commands.AddCustomerAddress
+namespace PatientService.Application.Customers.Commands.AddCustomerAddress
 {
     public sealed record AddCustomerAddressCommand (
         Guid CustomerId,

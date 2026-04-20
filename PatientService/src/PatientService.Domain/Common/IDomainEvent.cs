@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CustomerService.Domain.Common
+namespace PatientService.Domain.Common
 {
     public interface IDomainEvent : INotification
     {

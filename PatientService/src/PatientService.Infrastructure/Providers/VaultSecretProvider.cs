@@ -1,9 +1,9 @@
-﻿using CustomerService.Application.Abstractions.Secrets;
-using CustomerService.Infrastructure.Caching;
-using CustomerService.Infrastructure.Configuration;
+﻿using PatientService.Application.Abstractions.Secrets;
+using PatientService.Infrastructure.Caching;
+using PatientService.Infrastructure.Configuration;
 using VaultSharp;
 
-namespace CustomerService.Infrastructure.Providers
+namespace PatientService.Infrastructure.Providers
 {
     public sealed class VaultSecretProvider : ISecretProvider
     {

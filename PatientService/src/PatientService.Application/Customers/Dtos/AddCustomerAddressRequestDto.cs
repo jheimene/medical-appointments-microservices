@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Application.Customers.Dtos
+﻿namespace PatientService.Application.Customers.Dtos
 {
     public sealed record AddCustomerAddressRequestDto(
         string Street,

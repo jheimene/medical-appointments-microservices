@@ -1,13 +1,13 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using CustomerService.Application.Customers.Queries.GetCustomerAddressById;
-using CustomerService.Application.Customers.Commands.CreateCustomer;
-using CustomerService.Application.Customers.Dtos;
-using CustomerService.Application.Customers.Queries.GetByIdCustomer;
-using CustomerService.Application.Customers.Commands.AddCustomerAddress;
-using CustomerService.Api.Common;
+using PatientService.Application.Customers.Queries.GetCustomerAddressById;
+using PatientService.Application.Customers.Commands.CreateCustomer;
+using PatientService.Application.Customers.Dtos;
+using PatientService.Application.Customers.Queries.GetByIdCustomer;
+using PatientService.Application.Customers.Commands.AddCustomerAddress;
+using PatientService.Api.Common;
 
-namespace CustomerService.Api.Controllers
+namespace PatientService.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

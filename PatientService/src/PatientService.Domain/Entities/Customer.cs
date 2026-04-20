@@ -1,9 +1,9 @@
 ﻿
-using CustomerService.Domain.Enums;
-using CustomerService.Domain.Helpers;
+using PatientService.Domain.Enums;
+using PatientService.Domain.Helpers;
 using System.Xml.Linq;
 
-namespace CustomerService.Domain.Entities
+namespace PatientService.Domain.Entities
 {
     public sealed class Customer : AggregateRoot<CustomerId, string>
     {

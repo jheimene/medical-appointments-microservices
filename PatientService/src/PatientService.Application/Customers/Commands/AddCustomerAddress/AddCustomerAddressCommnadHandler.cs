@@ -1,7 +1,7 @@
-﻿using CustomerService.Application.Commmon.Interfaces;
+﻿using PatientService.Application.Commmon.Interfaces;
 using MediatR;
 
-namespace CustomerService.Application.Customers.Commands.AddCustomerAddress
+namespace PatientService.Application.Customers.Commands.AddCustomerAddress
 {
     public sealed class AddCustomerAddressCommnadHandler : IRequestHandler<AddCustomerAddressCommand, Guid>
     {

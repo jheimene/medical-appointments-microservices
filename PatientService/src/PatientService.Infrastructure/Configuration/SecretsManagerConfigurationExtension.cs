@@ -1,10 +1,10 @@
 ﻿using Amazon.SecretsManager;
-using CustomerService.Application.Abstractions.Secrets;
-using CustomerService.Infrastructure.Providers;
+using PatientService.Application.Abstractions.Secrets;
+using PatientService.Infrastructure.Providers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CustomerService.Infrastructure.Configuration
+namespace PatientService.Infrastructure.Configuration
 {
     public static class SecretsManagerConfigurationExtension
     {

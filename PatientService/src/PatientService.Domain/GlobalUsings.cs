@@ -1,4 +1,4 @@
 ﻿
-global using CustomerService.Domain.Common;
-global using CustomerService.Domain.ValueObjects;
-global using CustomerService.Domain.Exceptions;
+global using PatientService.Domain.Common;
+global using PatientService.Domain.ValueObjects;
+global using PatientService.Domain.Exceptions;

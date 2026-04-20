@@ -2,7 +2,7 @@
 using FluentValidation;
 using MediatR;
 
-namespace CustomerService.Application.Behaviors.Common
+namespace PatientService.Application.Behaviors.Common
 {
     public class ValidationErrorOrBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>

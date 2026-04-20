@@ -1,10 +1,10 @@
-﻿using CustomerService.Application.Commmon.Interfaces;
-using CustomerService.Application.Common.Helpers;
+﻿using PatientService.Application.Commmon.Interfaces;
+using PatientService.Application.Common.Helpers;
 using ErrorOr;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace CustomerService.Application.Customers.Commands.CreateCustomer
+namespace PatientService.Application.Customers.Commands.CreateCustomer
 {
     public sealed class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, ErrorOr<Guid>>
     {

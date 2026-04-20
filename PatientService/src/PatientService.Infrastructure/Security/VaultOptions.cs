@@ -1,5 +1,5 @@
 ﻿
-namespace CustomerService.Infrastructure.Security
+namespace PatientService.Infrastructure.Security
 {
     public sealed class VaultOptions
     {

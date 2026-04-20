@@ -1,7 +1,7 @@
 ﻿
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace CustomerService.Domain.ValueObjects
+namespace PatientService.Domain.ValueObjects
 {
     public record DocumentId
     {

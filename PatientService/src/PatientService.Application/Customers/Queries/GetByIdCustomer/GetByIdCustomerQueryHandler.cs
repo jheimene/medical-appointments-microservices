@@ -1,9 +1,9 @@
-﻿using CustomerService.Application.Customers.Dtos;
-using CustomerService.Domain.Enums;
+﻿using PatientService.Application.Customers.Dtos;
+using PatientService.Domain.Enums;
 using ErrorOr;
 using MediatR;
 
-namespace CustomerService.Application.Customers.Queries.GetByIdCustomer
+namespace PatientService.Application.Customers.Queries.GetByIdCustomer
 {
     public sealed class GetByIdCustomerQueryHandler : IRequestHandler<GetByIdCustomerQuery, ErrorOr<CustomerDto>>
     {

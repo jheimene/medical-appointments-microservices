@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-namespace CustomerService.Domain.ValueObjects
+namespace PatientService.Domain.ValueObjects
 {
     public static class DocumentRules
     {

@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Application.Common.Helpers
+﻿namespace PatientService.Application.Common.Helpers
 {
     public static class EnumParsing
     {

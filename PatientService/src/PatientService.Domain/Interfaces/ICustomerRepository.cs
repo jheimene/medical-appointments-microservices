@@ -1,6 +1,6 @@
-﻿using CustomerService.Domain.Entities;
+﻿using PatientService.Domain.Entities;
 
-namespace CustomerService.Domain.Interfaces
+namespace PatientService.Domain.Interfaces
 {
     public interface ICustomerRepository
     {

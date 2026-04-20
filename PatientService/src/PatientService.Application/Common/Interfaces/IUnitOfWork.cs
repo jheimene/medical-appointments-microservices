@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Application.Commmon.Interfaces
+﻿namespace PatientService.Application.Commmon.Interfaces
 {
     public interface IUnitOfWork : IDisposable, IAsyncDisposable
     {

@@ -1,9 +1,9 @@
 ﻿
-using CustomerService.Domain.Common;
+using PatientService.Domain.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CustomerService.Infrastructure.Persistence.Contexts
+namespace PatientService.Infrastructure.Persistence.Contexts
 {
     public class ApplicationDbContext : DbContext
     {

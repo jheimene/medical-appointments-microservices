@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CustomerService.Infrastructure.Persistence.Configurations
+namespace PatientService.Infrastructure.Persistence.Configurations
 {
     public class CustomerIdConversion : ValueConverter<CustomerId, Guid>
     {

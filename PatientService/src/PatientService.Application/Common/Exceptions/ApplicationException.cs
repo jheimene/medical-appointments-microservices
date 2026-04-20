@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Application.Common.Exceptions
+﻿namespace PatientService.Application.Common.Exceptions
 {
     public abstract class ApplicationException : Exception
     {

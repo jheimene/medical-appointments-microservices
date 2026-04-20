@@ -1,5 +1,5 @@
 ﻿
-namespace CustomerService.Domain.Common
+namespace PatientService.Domain.Common
 {
     public abstract class AggregateRoot<TId, TUser> : AuditableEntity<TId, TUser>
     {

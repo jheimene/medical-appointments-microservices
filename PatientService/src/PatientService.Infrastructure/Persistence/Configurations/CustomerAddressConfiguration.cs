@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CustomerService.Infrastructure.Persistence.Configurations
+namespace PatientService.Infrastructure.Persistence.Configurations
 {
     public class CustomerAddressConfiguration : IEntityTypeConfiguration<CustomerAddress>
     {

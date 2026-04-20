@@ -1,7 +1,7 @@
 ﻿
-global using CustomerService.Application.Common.Behaviors;
-global using CustomerService.Application.Common.Helpers;
-global using CustomerService.Application.Common.Exceptions;
-global using CustomerService.Domain.Interfaces;
-global using CustomerService.Domain.Entities;
-global using CustomerService.Domain.ValueObjects;
+global using PatientService.Application.Common.Behaviors;
+global using PatientService.Application.Common.Helpers;
+global using PatientService.Application.Common.Exceptions;
+global using PatientService.Domain.Interfaces;
+global using PatientService.Domain.Entities;
+global using PatientService.Domain.ValueObjects;

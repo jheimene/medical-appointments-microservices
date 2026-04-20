@@ -1426,35 +1426,35 @@
           }
         }
       },
-      "CustomerService.Application/1.0.0": {
+      "PatientService.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "CustomerService.Domain": "1.0.0",
           "ErrorOr": "2.0.1",
           "FluentValidation": "12.1.1",
           "FluentValidation.DependencyInjectionExtensions": "12.1.1",
           "MediatR": "14.0.0",
-          "Microsoft.Extensions.DependencyInjection": "10.0.3"
+          "Microsoft.Extensions.DependencyInjection": "10.0.3",
+          "PatientService.Domain": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/CustomerService.Application.dll": {}
+          "bin/placeholder/PatientService.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CustomerService.Application.dll": {}
+          "bin/placeholder/PatientService.Application.dll": {}
         }
       },
-      "CustomerService.Domain/1.0.0": {
+      "PatientService.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "MediatR.Contracts": "2.0.1"
         },
         "compile": {
-          "bin/placeholder/CustomerService.Domain.dll": {}
+          "bin/placeholder/PatientService.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CustomerService.Domain.dll": {}
+          "bin/placeholder/PatientService.Domain.dll": {}
         }
       }
     }
@@ -4123,29 +4123,29 @@
         "vaultsharp.nuspec"
       ]
     },
-    "CustomerService.Application/1.0.0": {
+    "PatientService.Application/1.0.0": {
       "type": "project",
-      "path": "../CustomerService.Application/CustomerService.Application.csproj",
-      "msbuildProject": "../CustomerService.Application/CustomerService.Application.csproj"
+      "path": "../PatientService.Application/PatientService.Application.csproj",
+      "msbuildProject": "../PatientService.Application/PatientService.Application.csproj"
     },
-    "CustomerService.Domain/1.0.0": {
+    "PatientService.Domain/1.0.0": {
       "type": "project",
-      "path": "../CustomerService.Domain/CustomerService.Domain.csproj",
-      "msbuildProject": "../CustomerService.Domain/CustomerService.Domain.csproj"
+      "path": "../PatientService.Domain/PatientService.Domain.csproj",
+      "msbuildProject": "../PatientService.Domain/PatientService.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
       "AWSSDK.Extensions.NETCore.Setup >= 4.0.3.24",
       "AWSSDK.SecretsManager >= 4.0.4.8",
-      "CustomerService.Application >= 1.0.0",
-      "CustomerService.Domain >= 1.0.0",
       "MediatR >= 14.0.0",
       "Microsoft.EntityFrameworkCore >= 10.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.3",
       "Microsoft.Extensions.Configuration.Binder >= 10.0.3",
+      "PatientService.Application >= 1.0.0",
+      "PatientService.Domain >= 1.0.0",
       "VaultSharp >= 1.17.5.1"
     ]
   },
@@ -4156,11 +4156,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Infrastructure\\CustomerService.Infrastructure.csproj",
-      "projectName": "CustomerService.Infrastructure",
-      "projectPath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Infrastructure\\CustomerService.Infrastructure.csproj",
+      "projectUniqueName": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\PatientService\\src\\PatientService.Infrastructure\\PatientService.Infrastructure.csproj",
+      "projectName": "PatientService.Infrastructure",
+      "projectPath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\PatientService\\src\\PatientService.Infrastructure\\PatientService.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-      "outputPath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Infrastructure\\obj\\",
+      "outputPath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\PatientService\\src\\PatientService.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4182,11 +4182,11 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Application\\CustomerService.Application.csproj": {
-              "projectPath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Application\\CustomerService.Application.csproj"
+            "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\PatientService\\src\\PatientService.Application\\PatientService.Application.csproj": {
+              "projectPath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\PatientService\\src\\PatientService.Application\\PatientService.Application.csproj"
             },
-            "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Domain\\CustomerService.Domain.csproj": {
-              "projectPath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Domain\\CustomerService.Domain.csproj"
+            "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\PatientService\\src\\PatientService.Domain\\PatientService.Domain.csproj": {
+              "projectPath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\PatientService\\src\\PatientService.Domain\\PatientService.Domain.csproj"
             }
           }
         }

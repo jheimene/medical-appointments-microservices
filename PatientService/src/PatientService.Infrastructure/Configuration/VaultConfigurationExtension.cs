@@ -1,13 +1,13 @@
 ﻿
-using CustomerService.Application.Abstractions.Secrets;
-using CustomerService.Infrastructure.Caching;
-using CustomerService.Infrastructure.Providers;
+using PatientService.Application.Abstractions.Secrets;
+using PatientService.Infrastructure.Caching;
+using PatientService.Infrastructure.Providers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VaultSharp;
 using VaultSharp.V1.AuthMethods.Token;
 
-namespace CustomerService.Infrastructure.Configuration
+namespace PatientService.Infrastructure.Configuration
 {
     public static class VaultConfigurationExtension
     {

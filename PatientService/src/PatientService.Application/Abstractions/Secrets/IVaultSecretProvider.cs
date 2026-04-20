@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Application.Abstractions.Secrets
+﻿namespace PatientService.Application.Abstractions.Secrets
 {
     public interface IVaultSecretProvider
     {

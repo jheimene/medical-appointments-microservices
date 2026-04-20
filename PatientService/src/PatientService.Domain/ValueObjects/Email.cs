@@ -1,7 +1,7 @@
 ﻿
 using System.Text.RegularExpressions;
 
-namespace CustomerService.Domain.ValueObjects
+namespace PatientService.Domain.ValueObjects
 {
     public sealed class Email : ValueObject
     {

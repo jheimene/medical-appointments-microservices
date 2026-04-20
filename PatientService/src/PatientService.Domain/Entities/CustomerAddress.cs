@@ -1,5 +1,5 @@
 ﻿
-namespace CustomerService.Domain.Entities
+namespace PatientService.Domain.Entities
 {
     public sealed class CustomerAddress : AuditableEntity<CustomerAddressId, string>
     {               

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CustomerService.Domain.Interfaces
+namespace PatientService.Domain.Interfaces
 {
     internal interface IUnitOfWork
     {

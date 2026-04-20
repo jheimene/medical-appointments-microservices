@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Domain.Exceptions
+﻿namespace PatientService.Domain.Exceptions
 {
     public sealed class BusinessRuleViolationException : DomainException
     {

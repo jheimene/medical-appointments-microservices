@@ -1,7 +1,7 @@
 ﻿using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CustomerService.Api.Common
+namespace PatientService.Api.Common
 {
     public class ErrorOrHttp
     {

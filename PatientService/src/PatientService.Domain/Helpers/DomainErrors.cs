@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Domain.Helpers
+﻿namespace PatientService.Domain.Helpers
 {
     public static class DomainErrors
     {

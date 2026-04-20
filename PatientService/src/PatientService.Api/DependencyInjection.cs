@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
-namespace CustomerService.Api
+namespace PatientService.Api
 {
     public static class DependencyInjection
     {

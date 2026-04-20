@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Domain.Enums
+﻿namespace PatientService.Domain.Enums
 {
     public enum CustomerStatus
     {

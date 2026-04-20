@@ -38,8 +38,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CustomerService.Application\CustomerService.Application.csproj" />
-    <ProjectReference Include="..\CustomerService.Domain\CustomerService.Domain.csproj" />
+    <ProjectReference Include="..\PatientService.Application\PatientService.Application.csproj" />
+    <ProjectReference Include="..\PatientService.Domain\PatientService.Domain.csproj" />
   </ItemGroup>
 
 </Project>

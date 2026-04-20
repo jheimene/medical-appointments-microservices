@@ -1,11 +1,11 @@
 ﻿using Amazon.SecretsManager;
 using Amazon.SecretsManager.Model;
-using CustomerService.Application.Abstractions.Secrets;
-using CustomerService.Infrastructure.Caching;
-using CustomerService.Infrastructure.Configuration;
+using PatientService.Application.Abstractions.Secrets;
+using PatientService.Infrastructure.Caching;
+using PatientService.Infrastructure.Configuration;
 using System.Text.Json;
 
-namespace CustomerService.Infrastructure.Providers
+namespace PatientService.Infrastructure.Providers
 {
     public sealed class AwsSecretsManagerSecretProvider : ISecretProvider
     {

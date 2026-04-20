@@ -1,6 +1,6 @@
-using CustomerService.Api;
-using CustomerService.Application;
-using CustomerService.Infrastructure;
+using PatientService.Api;
+using PatientService.Application;
+using PatientService.Infrastructure;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);

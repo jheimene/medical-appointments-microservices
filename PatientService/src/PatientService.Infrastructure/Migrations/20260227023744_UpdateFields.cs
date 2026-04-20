@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace CustomerService.Infrastructure.Migrations
+namespace PatientService.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class UpdateFields : Migration

@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Infrastructure.Caching
+﻿namespace PatientService.Infrastructure.Caching
 {
     public sealed class InMemorySecretCache
     {

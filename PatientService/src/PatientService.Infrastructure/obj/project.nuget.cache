@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qOyINKFZW0k=",
+  "dgSpecHash": "aVeIfmKfQ+I=",
   "success": true,
-  "projectFilePath": "D:\\Desktop\\NET\\NET\\Proyectos\\CURS-000538-clase05-sesion09\\SistemasVentas\\CustomerService\\src\\CustomerService.Infrastructure\\CustomerService.Infrastructure.csproj",
+  "projectFilePath": "D:\\Desktop\\CHENE\\NET\\Proyectos\\Proyecto-Citas-Medicas\\PatientService\\src\\PatientService.Infrastructure\\PatientService.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pc\\.nuget\\packages\\awssdk.core\\4.0.3.16\\awssdk.core.4.0.3.16.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\awssdk.extensions.netcore.setup\\4.0.3.24\\awssdk.extensions.netcore.setup.4.0.3.24.nupkg.sha512",

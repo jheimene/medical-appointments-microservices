@@ -1,5 +1,5 @@
 ﻿
-namespace CustomerService.Infrastructure.Configuration
+namespace PatientService.Infrastructure.Configuration
 {
     public sealed class SecretsManagerOptions
     {

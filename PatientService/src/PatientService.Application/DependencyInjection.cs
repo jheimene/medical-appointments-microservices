@@ -1,10 +1,10 @@
-﻿using CustomerService.Application.Behaviors.Common;
+﻿using PatientService.Application.Behaviors.Common;
 using FluentValidation;
 using MediatR;
 using MediatR.NotificationPublishers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CustomerService.Application
+namespace PatientService.Application
 {
     public static class DependencyInjection
     {

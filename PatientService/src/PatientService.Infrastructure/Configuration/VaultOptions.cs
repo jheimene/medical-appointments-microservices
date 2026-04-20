@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Infrastructure.Configuration
+﻿namespace PatientService.Infrastructure.Configuration
 {
     public class VaultOptions
     {

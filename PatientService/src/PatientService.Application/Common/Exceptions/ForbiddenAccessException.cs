@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Application.Commmon.Exceptions
+﻿namespace PatientService.Application.Commmon.Exceptions
 {
     public class ForbiddenAccessException : Exception
     {

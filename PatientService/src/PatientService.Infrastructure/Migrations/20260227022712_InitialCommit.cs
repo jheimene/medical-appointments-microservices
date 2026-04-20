@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace CustomerService.Infrastructure.Migrations
+namespace PatientService.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCommit : Migration

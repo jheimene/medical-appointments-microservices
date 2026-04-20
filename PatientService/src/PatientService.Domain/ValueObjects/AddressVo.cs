@@ -1,5 +1,5 @@
 ﻿
-namespace CustomerService.Domain.ValueObjects
+namespace PatientService.Domain.ValueObjects
 {
     public sealed class AddressVo : ValueObject
     {

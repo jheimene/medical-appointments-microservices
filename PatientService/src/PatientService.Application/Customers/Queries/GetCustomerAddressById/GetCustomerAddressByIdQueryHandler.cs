@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CustomerService.Application.Customers.Queries.GetCustomerAddressById
+namespace PatientService.Application.Customers.Queries.GetCustomerAddressById
 {
     public sealed class GetCustomerAddressByIdQueryHandler : IRequestHandler<GetCustomerAddressByIdQuery, GetCustomerAddressByIdQueryResponse>
     {

@@ -1,0 +1,10 @@
+# Build results
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.vsidx
+*.vspscc
+*.vssscc
+

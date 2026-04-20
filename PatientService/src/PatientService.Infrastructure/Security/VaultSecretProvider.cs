@@ -1,7 +1,7 @@
-﻿using CustomerService.Application.Abstractions.Secrets;
+﻿using PatientService.Application.Abstractions.Secrets;
 using VaultSharp;
 
-namespace CustomerService.Infrastructure.Security
+namespace PatientService.Infrastructure.Security
 {
     public class VaultSecretProvider : IVaultSecretProvider
     {

@@ -1,4 +1,4 @@
-﻿namespace CustomerService.Domain.Common
+﻿namespace PatientService.Domain.Common
 {
     public static class Guard
     {

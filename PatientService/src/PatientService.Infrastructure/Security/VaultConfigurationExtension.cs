@@ -1,10 +1,10 @@
-﻿using CustomerService.Application.Abstractions.Secrets;
+﻿using PatientService.Application.Abstractions.Secrets;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VaultSharp;
 using VaultSharp.V1.AuthMethods.Token;
 
-namespace CustomerService.Infrastructure.Security
+namespace PatientService.Infrastructure.Security
 {
     public static class VaultConfigurationExtension
     {
