@@ -1218,11 +1218,11 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
+          "DoctorService.Domain": "1.0.0",
           "ErrorOr": "2.0.1",
           "FluentValidation": "12.1.1",
           "FluentValidation.DependencyInjectionExtensions": "12.1.1",
-          "MediatR": "14.0.0",
-          "DoctorService.Domain": "1.0.0"
+          "MediatR": "14.0.0"
         },
         "compile": {
           "bin/placeholder/DoctorService.Application.dll": {}
@@ -1250,11 +1250,11 @@
         "dependencies": {
           "AWSSDK.Extensions.NETCore.Setup": "4.0.3.24",
           "AWSSDK.SecretsManager": "4.0.4.8",
+          "DoctorService.Application": "1.0.0",
+          "DoctorService.Domain": "1.0.0",
           "MediatR": "14.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.3",
-          "DoctorService.Application": "1.0.0",
-          "DoctorService.Domain": "1.0.0",
           "VaultSharp": "1.17.5.1"
         },
         "compile": {
@@ -3628,13 +3628,13 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "DoctorService.Application >= 1.0.0",
+      "DoctorService.Domain >= 1.0.0",
+      "DoctorService.Infrastructure >= 1.0.0",
       "MediatR >= 14.0.0",
       "Microsoft.AspNetCore.OpenApi >= 10.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.3",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.23.0",
-      "DoctorService.Application >= 1.0.0",
-      "DoctorService.Domain >= 1.0.0",
-      "DoctorService.Infrastructure >= 1.0.0",
       "Scalar.AspNetCore >= 2.12.48",
       "VaultSharp >= 1.17.5.1"
     ]

@@ -532,12 +532,12 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "DoctorService.Domain >= 1.0.0",
       "ErrorOr >= 2.0.1",
       "FluentValidation >= 12.1.1",
       "FluentValidation.DependencyInjectionExtensions >= 12.1.1",
       "MediatR >= 14.0.0",
-      "Microsoft.Extensions.DependencyInjection >= 10.0.3",
-      "DoctorService.Domain >= 1.0.0"
+      "Microsoft.Extensions.DependencyInjection >= 10.0.3"
     ]
   },
   "packageFolders": {

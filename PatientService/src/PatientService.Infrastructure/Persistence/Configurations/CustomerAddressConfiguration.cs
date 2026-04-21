@@ -17,6 +17,11 @@ namespace PatientService.Infrastructure.Persistence.Configurations
                 .ValueGeneratedNever()
                 .HasColumnName("PatientAddressId");
 
+            builder.Property(c => c.CustomerId)
+                .HasConversion(new CustomerIdConversion())
+                .HasColumnType("uniqueidentifier")
+                .HasColumnName("PatientId");
+
             builder.Property(c => c.Label).IsRequired().HasColumnName("Label").HasMaxLength(30);
 
             builder.OwnsOne(c => c.Address, a =>
