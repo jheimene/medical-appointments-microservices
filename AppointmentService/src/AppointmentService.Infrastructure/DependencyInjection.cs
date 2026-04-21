@@ -1,13 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using AppointmentService.Application.Abstractions.Secrets;
+﻿using AppointmentService.Application.Abstractions.Secrets;
 using AppointmentService.Application.Commmon.Interfaces;
 using AppointmentService.Domain.Interfaces;
 using AppointmentService.Infrastructure.Caching;
 using AppointmentService.Infrastructure.Persistence.Contexts;
 using AppointmentService.Infrastructure.Persistence.Repositories;
 using AppointmentService.Infrastructure.Providers;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AppointmentService.Infrastructure
 {
@@ -32,6 +32,7 @@ namespace AppointmentService.Infrastructure
 
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 
             return services;
         }

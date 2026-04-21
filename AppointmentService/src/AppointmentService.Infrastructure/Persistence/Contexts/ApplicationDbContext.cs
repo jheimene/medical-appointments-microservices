@@ -18,6 +18,7 @@ namespace AppointmentService.Infrastructure.Persistence.Contexts
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerAddress> Addresses { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

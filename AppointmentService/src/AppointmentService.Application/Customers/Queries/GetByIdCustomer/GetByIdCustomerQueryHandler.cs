@@ -1,5 +1,5 @@
 ﻿using AppointmentService.Application.Customers.Dtos;
-using AppointmentService.Domain.Enums;
+using AppointmentService.Domain.Interfaces;
 using ErrorOr;
 using MediatR;
 
@@ -7,29 +7,29 @@ namespace AppointmentService.Application.Customers.Queries.GetByIdCustomer
 {
     public sealed class GetByIdCustomerQueryHandler : IRequestHandler<GetByIdCustomerQuery, ErrorOr<CustomerDto>>
     {
-        private readonly ICustomerRepository _customerRepository;
+        private readonly IAppointmentRepository _appointmentRepository;
 
-        public GetByIdCustomerQueryHandler(ICustomerRepository customerRepository)
+        public GetByIdCustomerQueryHandler(IAppointmentRepository appointmentRepository)
         {
-            this._customerRepository = customerRepository;
+            _appointmentRepository = appointmentRepository;
         }
 
         public async Task<ErrorOr<CustomerDto>> Handle(GetByIdCustomerQuery request, CancellationToken cancellationToken)
         {
-            var customer = await _customerRepository.GetByIdAsync(new CustomerId(request.CustomerId));
-            if (customer == null)
+            var appointment = await _appointmentRepository.GetByIdAsync(request.CustomerId);
+            if (appointment == null)
             {
                 return Error.NotFound("Appointment.NotFound", $"Appointment with id {request.CustomerId} not found.");
             }
 
             return new CustomerDto
             {
-                AppointmentId = customer!.Id.Value,
-                PatientId = Guid.Empty,
-                DoctorId = Guid.Empty,
-                AppointmentDate = null,
-                Reason = customer.Name,
-                Status = customer.Status.ToString()
+                AppointmentId = appointment.AppointmentId,
+                PatientId = appointment.PatientId,
+                DoctorId = appointment.DoctorId,
+                AppointmentDate = appointment.AppointmentDate,
+                Reason = appointment.Reason,
+                Status = appointment.Status
             };
         }
     }

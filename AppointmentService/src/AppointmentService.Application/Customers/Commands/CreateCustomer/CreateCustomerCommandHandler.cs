@@ -1,4 +1,6 @@
 ﻿using AppointmentService.Application.Commmon.Interfaces;
+using AppointmentService.Domain.Entities;
+using AppointmentService.Domain.Interfaces;
 using ErrorOr;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -7,38 +9,35 @@ namespace AppointmentService.Application.Customers.Commands.CreateCustomer
 {
     public sealed class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, ErrorOr<Guid>>
     {
-        private readonly ICustomerRepository _customerRepository;
+        private readonly IAppointmentRepository _appointmentRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<CreateCustomerCommandHandler> _logger;
 
-        public CreateCustomerCommandHandler(ICustomerRepository customerRepository, IUnitOfWork unitOfwork, ILogger<CreateCustomerCommandHandler> logger)
+        public CreateCustomerCommandHandler(
+            IAppointmentRepository appointmentRepository,
+            IUnitOfWork unitOfWork,
+            ILogger<CreateCustomerCommandHandler> logger)
         {
-            _customerRepository = customerRepository ?? throw new ArgumentNullException(nameof(customerRepository));
-            _unitOfWork = unitOfwork ?? throw new ArgumentNullException(nameof(unitOfwork));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _appointmentRepository = appointmentRepository;
+            _unitOfWork = unitOfWork;
+            _logger = logger;
         }
 
         public async Task<ErrorOr<Guid>> Handle(CreateCustomerCommand command, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Creating appointment for patient {PatientId} with doctor {DoctorId}", command.PatientId, command.DoctorId);
 
-            var customer = Customer.Create(
-                command.PatientId.ToString(),
-                command.DoctorId.ToString(),
-                IdentityDocumentType.DNI,
-                command.AppointmentDate.ToString("yyyyMMdd"),
-                "SISTEMAS",
-                DateTime.Now,
-                null,
-                null,
-                null,
-                null
-             );
+            var appointment = Appointment.Create(
+                command.PatientId,
+                command.DoctorId,
+                command.AppointmentDate,
+                command.Reason
+            );
 
-            _customerRepository.CreateAsync(customer);
+            await _appointmentRepository.CreateAsync(appointment);
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-            return customer.Id.Value;
+            return appointment.AppointmentId;
         }
     }
 }
