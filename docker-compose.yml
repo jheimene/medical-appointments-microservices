@@ -1,0 +1,53 @@
+services:
+
+  patient-service:
+    build:
+      context: ./PatientService
+      dockerfile: Dockerfile
+    container_name: patient-service
+    ports:
+      - "7000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=host.docker.internal,1433;Database=bd_patient;User Id=admin;Password=abc123+.;TrustServerCertificate=True
+      - Services__PatientService=http://patient-service:8080
+      - Services__DoctorService=http://doctor-service:8080
+    networks:
+      - citas-medicas-network
+
+  doctor-service:
+    build:
+      context: ./DoctorService
+      dockerfile: Dockerfile
+    container_name: doctor-service
+    ports:
+      - "7001:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=host.docker.internal,1433;Database=bd_doctor;User Id=admin;Password=abc123+.;TrustServerCertificate=True
+      - Services__PatientService=http://patient-service:8080
+      - Services__DoctorService=http://doctor-service:8080
+    networks:
+      - citas-medicas-network
+
+  appointment-service:
+    build:
+      context: ./AppointmentService
+      dockerfile: Dockerfile
+    container_name: appointment-service
+    ports:
+      - "7002:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=host.docker.internal,1433;Database=bd_appointment;User Id=admin;Password=abc123+.;TrustServerCertificate=True
+      - Services__PatientService=http://patient-service:8080
+      - Services__DoctorService=http://doctor-service:8080
+    depends_on:
+      - patient-service
+      - doctor-service
+    networks:
+      - citas-medicas-network
+
+networks:
+  citas-medicas-network:
+    driver: bridge
