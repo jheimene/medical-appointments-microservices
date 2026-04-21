@@ -1,5 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DoctorService.Infrastructure.Persistence.Configurations
@@ -8,15 +7,15 @@ namespace DoctorService.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            builder.ToTable("Customer", schema: "Customer");
+            builder.ToTable("Doctor", schema: "Doctor");
 
-            builder.HasKey(c => c.Id).HasName("PK_Customer");
+            builder.HasKey(c => c.Id).HasName("PK_Doctor");
 
             builder.Property(c => c.Id)
                 .HasConversion(new CustomerIdConversion())
                 .HasColumnType("uniqueidentifier")
                 .ValueGeneratedNever()
-                .HasColumnName($"CustomerId");
+                .HasColumnName("DoctorId");
 
             builder.Property(c => c.Name).IsRequired().HasMaxLength(80);
 
@@ -32,7 +31,7 @@ namespace DoctorService.Infrastructure.Persistence.Configurations
 
             builder.Property(c => c.Phone).HasConversion(v => v!.Number, v => new PhoneNumber(v)).HasColumnName("PhoneNumber").HasColumnType("varchar(50)");
 
-            builder.Property(c => c.Status).IsRequired().HasConversion<string>().HasColumnType("varchar(20)"); //.HasDefaultValue(EventStatus.Draft);
+            builder.Property(c => c.Status).IsRequired().HasConversion<string>().HasColumnType("varchar(20)");
 
             builder.HasMany(c => c.Address)
                 .WithOne(a => a.Customer)
@@ -43,7 +42,6 @@ namespace DoctorService.Infrastructure.Persistence.Configurations
             builder.Property(c => c.BirthDate).HasColumnType("date").HasColumnName("BirthDate");
 
             builder.Property(c => c.Gender).HasConversion<string>().HasColumnType("varchar(10)").HasColumnName("Gender");
-
         }
     }
 }
