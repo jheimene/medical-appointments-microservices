@@ -1,78 +1,47 @@
 {
   "ReverseProxy": {
     "Routes": {
-      "customerServiceRoute": {
-        "ClusterId": "customerCluster",
+      "patientServiceRoute": {
+        "ClusterId": "patientCluster",
         "Match": {
           "Methods": [ "GET", "POST", "PUT" ],
-          "Path": "/api/customers/{**catch-all}"
+          "Path": "/api/patients/{**catch-all}"
         }
       },
-      "productServiceRoute": {
-        "ClusterId": "productCluster",
+      "doctorServiceRoute": {
+        "ClusterId": "doctorCluster",
         "Match": {
           "Methods": [ "GET", "POST", "PUT" ],
-          "Path": "/api/products/{**catch-all}"
+          "Path": "/api/doctors/{**catch-all}"
         }
       },
-      "productSearchServiceRoute": {
-        "ClusterId": "productCluster",
+      "appointmentServiceRoute": {
+        "ClusterId": "appointmentCluster",
         "Match": {
-          "Methods": [ "GET" ],
-          "Path": "/api/productSearch/{**catch-all}"
-        }
-      },
-      "orderServiceRoute": {
-        "ClusterId": "orderCluster",
-        "Match": {
-          "Path": "/api/orders/{**catch-all}"
+          "Methods": [ "GET", "POST", "PUT" ],
+          "Path": "/api/appointments/{**catch-all}"
         }
       }
     },
     "Clusters": {
-      "customerCluster": {
-        "LoadBalancingPolicy": "PowerOfTwoChoices",
+      "patientCluster": {
         "Destinations": {
           "server1": {
-            "Address": "http://192.168.18.150:5500/"
-          },
-          "server2": {
-            "Address": "http://192.168.18.151:5500/"
-          },
-          "server3": {
-            "Address": "http://192.168.18.152:5500/"
+            "Address": "https://localhost:7000/"
           }
         }
       },
-      "productCluster": {
-        "LoadBalancingPolicy": "RoundRobin",
+      "doctorCluster": {
         "Destinations": {
           "server1": {
-            "Address": "http://192.168.18.150:5600/"
-          },
-          "server2": {
-            "Address": "http://192.168.18.151:5600/"
+            "Address": "https://localhost:7001/"
           }
         }
       },
-      //"productSearchCluster": {
-      //  "LoadBalancingPolicy": "RoundRobin",
-      //  "Destinations": {
-      //    "server1": {
-      //      "Address": "http://192.168.18.150:5600/"
-      //    },
-      //    "server2": {
-      //      "Address": "http://192.168.18.151:5600/"
-      //    }
-      //  }
-      //},
-      "orderCluster": {
+      "appointmentCluster": {
         "Destinations": {
           "server1": {
-            "Address": "http://192.168.18.150:5800/"
-          },
-          "server2": {
-            "Address": "http://192.168.18.151:5800/"
+            "Address": "https://localhost:7002/"
           }
         }
       }
