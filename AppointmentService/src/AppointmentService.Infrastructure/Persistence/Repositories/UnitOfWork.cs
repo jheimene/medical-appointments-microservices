@@ -1,12 +1,33 @@
-﻿using OrderService.Application.Abstractions;
+﻿
+using AppointmentService.Application.Commmon.Interfaces;
+using AppointmentService.Infrastructure.Persistence.Contexts;
 
-namespace OrderService.Infrastructure.Persistence.Repositories
+namespace AppointmentService.Infrastructure.Persistence.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+        private readonly ApplicationDbContext _dbContext;
+
+        public UnitOfWork(ApplicationDbContext dbContext)
         {
-            return Task.FromResult(0);
+            _dbContext = dbContext;
+        }
+
+        public void Dispose()
+        {
+            _dbContext.Dispose();
+            GC.SuppressFinalize(this);
+        }
+
+        public async ValueTask DisposeAsync()
+        {
+            await _dbContext.DisposeAsync();
+            GC.SuppressFinalize(this);
+        }
+
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            return await _dbContext.SaveChangesAsync(cancellationToken);
         }
     }
 }

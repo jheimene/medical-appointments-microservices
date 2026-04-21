@@ -1,12 +1,10 @@
-﻿using FluentValidation;
+﻿using AppointmentService.Application.Behaviors.Common;
+using FluentValidation;
 using MediatR;
 using MediatR.NotificationPublishers;
 using Microsoft.Extensions.DependencyInjection;
-using OrderService.Application.Behaviors;
-using OrderService.Application.UseCases.Orders.CreateOrder;
-using OrderService.Application.UseCases.Orders.GetByIdOrder;
 
-namespace OrderService.Application
+namespace AppointmentService.Application
 {
     public static class DependencyInjection
     {
@@ -14,26 +12,22 @@ namespace OrderService.Application
         {
             var assembly = typeof(DependencyInjection).Assembly;
 
-            services.AddMediatR(cfg =>
-            {
-                cfg.RegisterServicesFromAssemblies(assembly);
-                cfg.NotificationPublisher = new TaskWhenAllPublisher();
+            services.AddMediatR(cfg => {
+                cfg.RegisterServicesFromAssembly(assembly);
+                cfg.NotificationPublisher = new TaskWhenAllPublisher(); // Publish notifications in parallel
             });
 
-            // FluentValidation: registra All (incluye internal)
+            // Fluent Validation: Register all validators from the assembly, including internal types
             services.AddValidatorsFromAssembly(assembly, includeInternalTypes: true);
 
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-            
-            services.AddScoped<CreateOrderCommandHandler>(); 
-            services.AddScoped<GetByIdOrderQueryHandler>();
 
-            //services.AddScoped<IOrderService, OrderService>();
-
-            //services.AddScoped<ITicketReservationService, TicketReservationService>();
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationErrorOrBehavior<,>));
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(PerformanceBehavior<,>));
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehavior<,>));
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
             return services;
         }
+
     }
 }

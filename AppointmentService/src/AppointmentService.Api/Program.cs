@@ -1,9 +1,11 @@
-using OrderService.Api.EndPoints;
-using OrderService.Api;
-using OrderService.Application;
-using OrderService.Infrastructure;
+using AppointmentService.Api;
+using AppointmentService.Application;
+using AppointmentService.Infrastructure;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
 
 builder.Services.AddPresentation();
 
@@ -13,17 +15,24 @@ builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.MapOpenApi();
+    app.MapScalarApiReference(); // scalar/v1
 }
+else
+{
+    app.UseHsts();
+}
+
+// ✅ Esto hace que NO salga el mega detalle del DeveloperExceptionPage
+app.UseExceptionHandler(/*new ExceptionHandlerOptions { SuppressDiagnosticsCallback = _ => false }*/);
 
 app.UseHttpsRedirection();
 
-app.MapOrderEndpoints();
+app.UseAuthorization();
 
-app.MapHealthChecks("/health");
+app.MapControllers();
 
 app.Run();
-
